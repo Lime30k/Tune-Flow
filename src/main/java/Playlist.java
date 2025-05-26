@@ -1,5 +1,8 @@
-public class Playlist {
-    String name;
-    long  length;
+import javax.swing.*;
+import java.util.ArrayList;
 
+public class Playlist extends ArrayList {
+public void Playlist(){
+
+}
 }
