@@ -9,9 +9,10 @@ public class Song {
     public Song(){
 
     }
-    public String getName(){
+    public String getName() {
         return name;
     }
+
     public String getGenre(){
         return genre;
     }
@@ -30,5 +31,29 @@ public class Song {
 
     public double getLenght() {
         return lenght;
+    }
+
+
+    public void setName(String s){
+        this.name=s;
+    }
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public void setLenght(double lenght) {
+        this.lenght = lenght;
+    }
+
+    public void setLikes(int likes) {
+        this.likes = likes;
+    }
+
+    public void setFilepath(String filepath) {
+        this.filepath = filepath;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
     }
 }
