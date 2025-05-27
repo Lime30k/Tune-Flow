@@ -15,7 +15,7 @@ public class ViewImpl extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ViewImpl.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Spotily!");
+        stage.setTitle("Walter!");
         stage.setScene(scene);
         stage.show();
     }

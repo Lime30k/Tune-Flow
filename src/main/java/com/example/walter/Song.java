@@ -1,3 +1,5 @@
+package com.example.walter;
+
 public class Song {
     String name;
     String genre;

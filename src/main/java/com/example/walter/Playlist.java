@@ -1,4 +1,5 @@
-import javax.swing.*;
+package com.example.walter;
+
 import java.util.ArrayList;
 
 public class Playlist extends ArrayList {
