@@ -14,5 +14,8 @@ public class HelloController {
         welcomeText.setText("Welcome to JavaFX Application!");
         welcomeText.setTextFill(Color.PURPLE);
         welcomeText.setFont(Font.font("verdana"));
+
     }
+
+
 }

@@ -2,5 +2,5 @@ package com.example.walter;
 
 public interface VIEW {
 
-    void andereView();
+    void ChangeView();
 }
