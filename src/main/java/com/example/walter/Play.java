@@ -9,14 +9,13 @@ import javafx.scene.media.MediaPlayer;
 
 public class Play {
     String bip = null;
-    public Play() {
-
+    public Play()
+    {
         try {
             bip = getClass().getResource("/test.mp3").toURI().toString();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
-
     }
     Media hit = new Media(new File(bip).toURI().toString());
     MediaPlayer mediaPlayer = new MediaPlayer(hit);
