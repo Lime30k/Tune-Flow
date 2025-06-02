@@ -13,7 +13,7 @@ public class ViewImpl extends Application {
 /**
     DOCUMENTATION: Authors: Alex, Linus, Andreas.
 
-    Usage of this Spotify-like application:
+    Usage of this Tune-Flow application:
 
     Start the app  by using the main method.
     Decide whether you want to listen to an already defined Playlist or a new Song.
