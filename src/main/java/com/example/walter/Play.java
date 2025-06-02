@@ -9,10 +9,11 @@ import javafx.scene.media.MediaPlayer;
 
 public class Play {
     String bip = null;
+    String song = "never_gonna_give_you_up";
     public Play()
     {
         try {
-            bip = getClass().getResource("/test.mp3").toURI().toString();
+            bip = getClass().getResource("recources/"+song+".mp3").toURI().toString();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
