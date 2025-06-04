@@ -5,7 +5,7 @@ public class User {
     int ID;
     Playlist[] playlists;
 
-    public void User(String name) {
+    public User(String name) {
         username = name;
         ID = 1;
     }
