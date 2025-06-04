@@ -21,7 +21,7 @@ public class ViewImpl extends Application {
     Follow your instinct, it might be self-explanatory.
     Have fun!!!
 
-    Das ist ein Test!
+
 
 */
 

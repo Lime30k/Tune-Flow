@@ -5,10 +5,12 @@ public class Song {
     String genre;
     double length;
     String artist;
+    String album;
     int likes;
     String filepath;
+    int rating;
 
-    public Song(String name, String genre, double length, String artist, int likes, String filepath)
+    public Song(String name, String genre, double length, String artist, int likes, String filepath, String album, int rating)
     {
         this.setName(name);
         this.setGenre(genre);
@@ -16,6 +18,8 @@ public class Song {
         this.setLenght(length);
         this.setLikes(likes);
         this.setFilepath(filepath);
+        this.setAlbum(album);
+        this.setRating(rating);
     }
     public String getName()
     {
@@ -47,6 +51,15 @@ public class Song {
         return length;
     }
 
+    public String getAlbum()
+    {
+        return album;
+    }
+
+    public int getRating()
+    {
+        return rating;
+    }
 
     public void setName(String s)
     {
@@ -75,5 +88,21 @@ public class Song {
     public void setArtist(String artist)
     {
         this.artist = artist;
+    }
+
+    public void setAlbum(String album)
+    {
+       this.album = album;
+    }
+
+    public void setRating(int rating)
+    {
+        this.rating = rating;
+    }
+
+
+    public void changeRating(int rating)
+    {
+
     }
 }
