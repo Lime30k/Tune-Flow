@@ -15,7 +15,7 @@ public class User {
 
     public void rateSong(Song song, int rating) {
 
-        song.changeRating();
+        song.changeRating(rating);
 
 
 
