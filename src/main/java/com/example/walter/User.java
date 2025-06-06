@@ -13,7 +13,7 @@ public class User {
     public void createPlaylist() {
     }
 
-    public void rateSong(Song song, int rating) {
+    public void rateSong(Song song, double rating) {
 
         song.changeRating(rating);
 

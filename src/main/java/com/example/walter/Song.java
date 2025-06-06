@@ -8,9 +8,9 @@ public class Song {
     String album;
     int likes;
     String filepath;
-    int rating;
+    double rating;
 
-    public Song(String name, String genre, double length, String artist, int likes, String filepath, String album, int rating)
+    public Song(String name, String genre, double length, String artist, int likes, String filepath, String album, double rating)
     {
         this.setName(name);
         this.setGenre(genre);
@@ -95,14 +95,20 @@ public class Song {
        this.album = album;
     }
 
-    public void setRating(int rating)
+    public void setRating(double rating)
     {
         this.rating = rating;
     }
 
 
-    public void changeRating(int rating)
+    public void changeRating(double rating)
     {
-
+        this.rating = rating;
     }
+
+
+
+
+
+
 }
