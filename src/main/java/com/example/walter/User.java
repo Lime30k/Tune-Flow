@@ -14,14 +14,25 @@ public class User {
     }
 
     public void rateSong(Song song, double rating) {
-
         song.changeRating(rating);
+    }
+
+    public void calculateReview(Song song, double rating, int amount){
+
+           /*
+            Hier muss noch was gescheites hin!!!
+            rating = rating*amount + 1* rating;
+            */
+
+    }
 
 
 
 
 
-        /*if (i < 5) {
+
+
+    /*if (i < 5) {
 
             System.out.println("This Playlist is not the yellow from the egg!");
 
@@ -31,7 +42,7 @@ public class User {
 
         }
     */
-    }
+
 
 
 
