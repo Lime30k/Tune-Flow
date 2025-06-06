@@ -10,7 +10,7 @@ public class Playlist {
         playlist=new ArrayList<Song>();
         name=n;
     }
-    public void Play(int Index){/*Startet Song bei bestimmtem Index und spielt ihn ab*/
+    public void Play(int Index){
         playlist.get(Index);
     }
 }

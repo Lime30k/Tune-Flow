@@ -31,6 +31,10 @@ public class Play {
     {
         mediaPlayer.play();
     }
+    public void changeSong(String s){
+        song = s;
+
+    }
     /*public void pause()
     {
         mediaPlayer.setOnPaused(hit);
