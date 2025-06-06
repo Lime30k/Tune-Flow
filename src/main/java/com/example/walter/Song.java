@@ -56,7 +56,7 @@ public class Song {
         return album;
     }
 
-    public int getRating()
+    public double getRating()
     {
         return rating;
     }
