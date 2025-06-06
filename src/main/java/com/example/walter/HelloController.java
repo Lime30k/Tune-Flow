@@ -1,6 +1,7 @@
 package com.example.walter;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -8,13 +9,14 @@ import javafx.scene.text.Font;
 public class HelloController {
     @FXML
     private Label welcomeText;
+    public Button HelloButton;
 
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
         welcomeText.setTextFill(Color.PURPLE);
         welcomeText.setFont(Font.font("verdana"));
-
+        HelloButton.setText("STOP!!!!");
     }
 
 

@@ -30,7 +30,7 @@ public class ViewImpl extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(ViewImpl.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
+        Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Walter!");
         stage.setScene(scene);
         stage.show();
