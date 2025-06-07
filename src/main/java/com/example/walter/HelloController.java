@@ -10,13 +10,11 @@ public class HelloController {
     @FXML
     private Label welcomeText;
     public Button HelloButton;
+    public Label song_name_song_play;
 
     @FXML
     protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
-        welcomeText.setTextFill(Color.PURPLE);
-        welcomeText.setFont(Font.font("verdana"));
-        HelloButton.setText("STOP!!!!");
+        System.out.println("Label click works!");
     }
 
 
