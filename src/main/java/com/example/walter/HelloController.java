@@ -11,11 +11,21 @@ public class HelloController {
     private Label welcomeText;
     public Button HelloButton;
     public Label song_name_song_play;
+    public Button Play_pause;
+
+
+    Play play = new Play();
+
 
     @FXML
     protected void onHelloButtonClick() {
         System.out.println("Label click works!");
     }
-
+    @FXML
+    protected void onPlayPauseClick()
+    {
+        play.playinit();
+        play.startplay();
+    }
 
 }

@@ -82,7 +82,7 @@
                         <HBox alignment="TOP_CENTER" spacing="8.0">
                            <children>
                               <Button mnemonicParsing="false" text="⏮" />
-                              <Button mnemonicParsing="false" text="▷" />
+                              <Button fx:id="Play_pause" mnemonicParsing="false" onAction="#onPlayPauseClick" text="▷" />
                               <Button mnemonicParsing="false" text="⏭" />
                            </children>
                            <padding>
