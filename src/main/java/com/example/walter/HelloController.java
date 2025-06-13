@@ -5,10 +5,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.Priority;
 
 public class HelloController {
     @FXML
@@ -16,8 +17,9 @@ public class HelloController {
     public Button HelloButton;
     public Label song_name_song_play;
     public Button Play_pause;
-    public HBox songmenubar;
+    public VBox songmenubar;
     public MenuItem fileloader;
+    public ScrollPane songmenuscroll;
 
     Play play = new Play();
 
@@ -25,6 +27,7 @@ public class HelloController {
     @FXML
     protected void onHelloButtonClick() {
         System.out.println("Label click works!");
+        addSongItem("new song would look like this");
     }
     @FXML
     protected void onPlayPauseClick()
@@ -36,9 +39,28 @@ public class HelloController {
             Play_pause.setText("Pause");
 
         }
-        ;
-
     }
+
+    protected void addSongItem(String labelText) {
+        // Create a new HBox
+        HBox hbox = new HBox();
+        hbox.setSpacing(10); // optional
+        hbox.setPrefHeight(25);
+
+        Label label = new Label(labelText);
+
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        Button button = new Button("Button");
+
+        hbox.getChildren().addAll(label, spacer, button);
+
+        // Add the HBox to the VBox in the ScrollPane
+        songmenubar.getChildren().add(hbox);
+    }
+
+
 
     protected void rateSong(Song song, double rating) {
         song.calculateReview(rating);

@@ -122,15 +122,9 @@
       <ListView prefHeight="25.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </left>
    <center>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="songmenuscroll" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <HBox fx:id="songmenubar" prefHeight="25.0" prefWidth="196.0">
-               <children>
-                  <Label text="Label" />
-                  <Region HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="Button" />
-               </children>
-            </HBox>
+            <VBox fx:id="songmenubar" prefHeight="200.0" prefWidth="100.0" />
          </content>
       </ScrollPane>
    </center>
