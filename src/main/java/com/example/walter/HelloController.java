@@ -33,4 +33,11 @@ public class HelloController {
         play.startplay();
     }
 
+    protected void rateSong(Song song, double rating) {
+        song.changeRating(rating);
+    }
+
+    protected void createPlaylist() {
+    }
+
 }

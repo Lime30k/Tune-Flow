@@ -108,7 +108,14 @@ public class Song {
 
     public void setReview(int amount) {this.amount = amount;  }
 
+    public void calculateReview(Song song, double rating, int amount) {
 
+        double convert = amount;
+
+        convert = convert * rating;
+
+
+    }
 
 
 
