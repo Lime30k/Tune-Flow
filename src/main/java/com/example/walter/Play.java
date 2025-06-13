@@ -11,10 +11,13 @@ public class Play {
     private String song = "never_gonna_give_you_up";
     private MediaPlayer mediaPlayer;
     private Media hit =null;
+    public int Playstatus=0;
+
     public Play()
     {
     }
 
+    //sets the new song run this if you initialize a new song not just the first time but every time you want a new song
     public void playinit() {
         try {
             var resource = getClass().getResource("/" + song + ".mp3");
@@ -29,10 +32,20 @@ public class Play {
         mediaPlayer = new MediaPlayer(hit);
     }
 
-    public void startplay()
+    //starts to play music if there is no music playing atm
+    public boolean startplay()
     {
-        mediaPlayer.play();
+        if(Playstatus==0) {
+            Playstatus = 1;
+            mediaPlayer.play();
+            System.out.println("Song "+ song + " started playing playing!");
+            return true;
+        }
+        System.out.println("incorrect player status for playing");
+        return false;
     }
+
+    //Andreas what is that for?
     public void changeSong(String s){
         song = s;
 

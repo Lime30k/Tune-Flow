@@ -1,8 +1,12 @@
 package com.example.walter;
 
+import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -12,7 +16,8 @@ public class HelloController {
     public Button HelloButton;
     public Label song_name_song_play;
     public Button Play_pause;
-
+    public HBox songmenubar;
+    public MenuItem fileloader;
 
     Play play = new Play();
 
