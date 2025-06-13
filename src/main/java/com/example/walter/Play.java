@@ -11,7 +11,7 @@ public class Play {
     private String song = "never_gonna_give_you_up";
     private MediaPlayer mediaPlayer;
     private Media hit =null;
-    public int Playstatus=0;
+    private int Playstatus=0;
 
     public Play()
     {
@@ -39,10 +39,27 @@ public class Play {
             Playstatus = 1;
             mediaPlayer.play();
             System.out.println("Song "+ song + " started playing playing!");
+
             return true;
         }
         System.out.println("incorrect player status for playing");
         return false;
+    }
+    public boolean pauseplay()
+    {
+        if(Playstatus==1) {
+            Playstatus = 0;
+            mediaPlayer.pause();
+            System.out.println("Song "+ song + " is currently paused!");
+
+            return true;
+        }
+        System.out.println("incorrect player status for pausing");
+        return false;
+    }
+
+    public int getPlaystatus() {
+        return Playstatus;
     }
 
     //Andreas what is that for?

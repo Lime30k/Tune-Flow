@@ -30,7 +30,14 @@ public class HelloController {
     protected void onPlayPauseClick()
     {
         play.playinit();
-        play.startplay();
+        if (play.getPlaystatus()==1) {
+            play.pauseplay();
+        } else if(play.startplay()){
+            Play_pause.setText("Pause");
+
+        }
+        ;
+
     }
 
     protected void rateSong(Song song, double rating) {

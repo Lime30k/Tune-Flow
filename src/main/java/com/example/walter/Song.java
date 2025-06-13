@@ -104,7 +104,9 @@ public class Song {
         this.rating = rating;
     }
 
-    public void changeRating(double rating) {  this.rating = rating;  }
+    public void changeRating(double rating) {
+        this.rating = rating;
+    }
 
     public void setReview(int amount) {this.amount = amount;  }
 
