@@ -108,15 +108,14 @@ public class Song {
 
     public void setReview(int amount) {this.amount = amount;  }
 
-    public void calculateReview(Song song, double rating, int amount) {
+    public void calculateReview(double newrating) {
 
         double convert = amount;
 
-        convert = convert * rating;
+        rating = (rating * convert + newrating) / (convert+1);
+        amount++;
 
 
     }
-
-
 
 }

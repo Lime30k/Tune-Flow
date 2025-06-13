@@ -34,7 +34,7 @@ public class HelloController {
     }
 
     protected void rateSong(Song song, double rating) {
-        song.changeRating(rating);
+        song.calculateReview(rating);
     }
 
     protected void createPlaylist() {
