@@ -19,8 +19,8 @@ public class Playlist {
             papaReader.read(songinit.txt);
             for(int  i = 0; i < papaReader.byteStash.size(); i++){
 
-                String uebergang = papaReader.byteStash[i-1];
-                AddSong(uebergang);
+                String another = papaReader.byteStash.get(i - 1);
+                AddSong(another);
 
             }
 
