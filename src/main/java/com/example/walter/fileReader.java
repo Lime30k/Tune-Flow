@@ -2,10 +2,14 @@ package com.example.walter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class fileReader {
+
+    public ArrayList<String> biteStash;
+
     public fileReader()
     {
     }
@@ -16,7 +20,7 @@ public class fileReader {
             Scanner reader = new Scanner(infile);
             while (reader.hasNextLine()) {
                 String data = reader.nextLine();
-                System.out.println(data);
+                biteStash.add(data);
             }
             reader.close();
         } catch (FileNotFoundException e) {
@@ -37,4 +41,5 @@ public class fileReader {
             System.out.println("The file does not exist.");
         }
     }
+
 }

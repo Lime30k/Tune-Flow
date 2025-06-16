@@ -44,6 +44,8 @@ public class HelloController extends Application {
     public MenuItem fileloader;
     public ScrollPane songmenuscroll;
 
+    public Playlist playlistPapa = new Playlist(0,"default");
+
     Play play = new Play();
     fileReader biteSnacker = new fileReader();
 
