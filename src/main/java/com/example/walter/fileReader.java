@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class fileReader {
 
-    public ArrayList<String> biteStash;
+    public ArrayList<String> byteStash;
 
     public fileReader()
     {
