@@ -10,6 +10,7 @@ public class Song {
     private String filepath;
     private double rating;
     private int amount;
+    
 
 
 
@@ -24,6 +25,7 @@ public class Song {
         this.setAlbum(album);
         this.setRating(rating);
         this.setReview(amount);
+
     }
     public String getName()
     {
