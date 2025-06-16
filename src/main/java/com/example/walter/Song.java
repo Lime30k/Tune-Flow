@@ -1,15 +1,15 @@
 package com.example.walter;
 
 public class Song {
-    String name;
-    String genre;
-    double length;
-    String artist;
-    String album;
-    int likes;
-    String filepath;
-    double rating;
-    int amount;
+    private String name;
+    private String genre;
+    private double length;
+    private String artist;
+    private String album;
+    private int likes;
+    private String filepath;
+    private double rating;
+    private int amount;
 
 
 

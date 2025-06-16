@@ -45,7 +45,7 @@ public class HelloController extends Application {
     public ScrollPane songmenuscroll;
 
     Play play = new Play();
-
+    fileReader biteSnacker = new fileReader();
 
     @FXML
     protected void onHelloButtonClick() {
@@ -86,10 +86,14 @@ public class HelloController extends Application {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
+        int ratingInt = 1;
+        String rstr = Integer.toString(ratingInt);
+        Label rating = new Label(rstr);
+
 
         Button button = new Button("Button");
 
-        hbox.getChildren().addAll(label, spacer, button);
+        hbox.getChildren().addAll(label, spacer, rating, button);
 
         // Add the HBox to the VBox in the ScrollPane
         songmenubar.getChildren().add(hbox);
@@ -104,13 +108,18 @@ public class HelloController extends Application {
     protected void createPlaylist() {
     }
 
+    protected void holySongInitializer(){
+
+    }
+
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
-        stage.setTitle("Walter!");
+        stage.setTitle("Tune-Flow");
         stage.setScene(scene);
         stage.show();
+        holySongInitializer();
     }
 
     public static void main(String[] args) {
