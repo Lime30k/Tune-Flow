@@ -17,7 +17,7 @@ public class Playlist {
         if(status == 0){
             fileReader papaReader = new fileReader();
             papaReader.read(songinit.txt);
-            for(int  i = 0, i < papaReader.byteStash.size(), i++){
+            for(int  i = 0; i < papaReader.byteStash.size(); i++){
 
 
 
