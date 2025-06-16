@@ -20,7 +20,7 @@ public class fileReader {
             Scanner reader = new Scanner(infile);
             while (reader.hasNextLine()) {
                 String data = reader.nextLine();
-                biteStash.add(data);
+                byteStash.add(data);
             }
             reader.close();
         } catch (FileNotFoundException e) {
