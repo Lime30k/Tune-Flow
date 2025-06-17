@@ -11,6 +11,9 @@ public class fileReader {
 
     public ArrayList<String> byteStash = new ArrayList<>();
 
+    //this filereader is kinda broken do not try to fix it
+    //hours wasted:8
+
     public fileReader()
     {
     }
@@ -19,7 +22,7 @@ public class fileReader {
         byteStash.clear();
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path)) {
             if (inputStream == null) {
-                System.out.println("❌ File not found in resources: " + path);
+                System.out.println("File not found in resources: " + path);
                 return;
             }
 
@@ -31,7 +34,7 @@ public class fileReader {
             reader.close();
 
         } catch (Exception e) {
-            System.out.println("❌ An error occurred while reading: " + path);
+            System.out.println("An error occurred while reading: " + path);
             e.printStackTrace();
         }
     }
