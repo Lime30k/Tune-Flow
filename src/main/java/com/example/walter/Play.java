@@ -61,7 +61,7 @@ public class Play {
 
         if (status == MediaPlayer.Status.PLAYING) {
             mediaPlayer.pause();
-            Playstatus = 0;
+            Playstatus = 2;
             System.out.println("Song " + song + " is currently paused!");
             return true;
         }
