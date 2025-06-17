@@ -59,8 +59,9 @@ public class HelloController extends Application {
     @FXML
     protected void onPlayPauseClick()
     {
-        play.playinit();
-        if (play.getPlaystatus()==1) {
+        if(play.getPlaystatus()==0){
+            play.playinit();
+        }else if (play.getPlaystatus()==1) {
             play.pauseplay();
         } else{
             play.startplay();
