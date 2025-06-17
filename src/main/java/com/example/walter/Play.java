@@ -53,8 +53,8 @@ public class Play {
         if(Playstatus==1) {
             Playstatus = 0;
             mediaPlayer.pause();
-            System.out.println("Song "+ song + " is currently paused!");
-
+            Playstatus = 2;
+            System.out.println("Song " + song + " is currently paused!");
             return true;
         }
         System.out.println("incorrect player status for pausing");
