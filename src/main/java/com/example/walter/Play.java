@@ -36,37 +36,28 @@ public class Play {
     public boolean startplay()
     {
         if(mediaPlayer==null){
-            System.out.println("MediaPlayer was not initialized");
+            System.out.println("Mediaplayer was not initialized");
         }
-        MediaPlayer.Status status = mediaPlayer.getStatus();
-
-        if (status == MediaPlayer.Status.PAUSED || status == MediaPlayer.Status.READY || status == MediaPlayer.Status.STOPPED) {
-            mediaPlayer.play();
+        if(Playstatus==0) {
             Playstatus = 1;
-            System.out.println("Song " + song + " started playing!");
+            mediaPlayer.play();
+            System.out.println("Song "+ song + " started playing playing!");
+
             return true;
         }
-
-        System.out.println("MediaPlayer is not in a playable state: " + status);
+        System.out.println("incorrect player status for playing");
         return false;
     }
     public boolean pauseplay()
     {
-        if (mediaPlayer == null) {
-            System.out.println("MediaPlayer is not initialized!");
-            return false;
-        }
-
-        MediaPlayer.Status status = mediaPlayer.getStatus();
-
-        if (status == MediaPlayer.Status.PLAYING) {
+        if(Playstatus==1) {
+            Playstatus = 0;
             mediaPlayer.pause();
             Playstatus = 2;
             System.out.println("Song " + song + " is currently paused!");
             return true;
         }
-
-        System.out.println("Cannot pause, MediaPlayer status is: " + status);
+        System.out.println("incorrect player status for pausing");
         return false;
     }
 
