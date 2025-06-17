@@ -1,0 +1,20 @@
+Name:
+space_oddity
+Genre:
+Rock
+Genre2:
+Psychedelic Rock
+RatingAmount:
+3,200,000
+Length:
+4:02
+Artist:
+David Bowie
+Album:
+David Bowie (1969)
+Average Rating:
+4.8
+Mood1:
+Nachdenklich
+Mood2:
+Einsam

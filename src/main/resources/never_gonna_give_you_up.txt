@@ -5,15 +5,16 @@ Pop
 Genre2:
 Dance-Pop
 RatingAmount:
-
+4,500,000
 Length:
-
+3:28
 Artist:
-
+Rick Astley
 Album:
-
+Whenever You Need Somebody
 Average Rating:
-
+4.6
 Mood1:
-
+Fröhlich
 Mood2:
+Nostalgisch
