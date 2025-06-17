@@ -61,13 +61,16 @@ public class HelloController extends Application {
     {
         if(play.getPlaystatus()==0){
             play.playinit();
-        }else if (play.getPlaystatus()==1) {
-            play.pauseplay();
-        } else{
             play.startplay();
             Play_pause.setText("Pause");
-
+        }else if (play.getPlaystatus()==1) {
+            play.pauseplay();
+            return;
+        }else {
+            play.startplay();
+            Play_pause.setText("Pause");
         }
+
     }
 
     @FXML
