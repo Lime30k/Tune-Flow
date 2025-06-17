@@ -7,7 +7,7 @@ Psychedelic Rock
 RatingAmount:
 3200000
 Length:
-4:02
+4.02
 Artist:
 David Bowie
 Album:

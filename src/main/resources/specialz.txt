@@ -7,7 +7,7 @@ Alternative Rock
 RatingAmount:
 1000000
 Length:
-4:01
+4.01
 Artist:
 King Gnu
 Album:

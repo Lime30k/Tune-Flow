@@ -2,29 +2,36 @@ package com.example.walter;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class fileReader {
 
-    public ArrayList<String> byteStash;
+    public ArrayList<String> byteStash = new ArrayList<>();
 
     public fileReader()
     {
     }
     public void read(String path)
     {
-        try {
-            File infile = new File(path);
-            Scanner reader = new Scanner(infile);
+        byteStash.clear();
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path)) {
+            if (inputStream == null) {
+                System.out.println("❌ File not found in resources: " + path);
+                return;
+            }
+
+            Scanner reader = new Scanner(inputStream);
             while (reader.hasNextLine()) {
                 String data = reader.nextLine();
                 byteStash.add(data);
             }
             reader.close();
-        } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
+
+        } catch (Exception e) {
+            System.out.println("❌ An error occurred while reading: " + path);
             e.printStackTrace();
         }
     }

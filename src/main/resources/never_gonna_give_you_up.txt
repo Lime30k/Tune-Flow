@@ -7,7 +7,7 @@ Dance-Pop
 RatingAmount:
 4500000
 Length:
-3:28
+3.28
 Artist:
 Rick Astley
 Album:

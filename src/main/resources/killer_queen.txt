@@ -7,7 +7,7 @@ Glam Rock
 RatingAmount:
 2500000
 Length:
-2:01
+2.01
 Artist:
 Queen
 Album:
