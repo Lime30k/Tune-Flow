@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Playlist {
 
     public String name;
-    public ArrayList<String> playliststr = new ArrayList<>();
+    public ArrayList<String> playListStr = new ArrayList<>();
     public ArrayList<Song> playlist = new ArrayList<>();
     private ArrayList<String> papa;
     private Song song = null;
@@ -34,13 +34,11 @@ public class Playlist {
 
     private void AddSong(String str){
 
-        if(playliststr.contains(str)){
-
+        if(playListStr.contains(str)){
             return;
-
         }else{
             SongConvert(str);
-            playliststr.add(str);
+            playListStr.add(str);
             playlist.add(song);
 
         }
