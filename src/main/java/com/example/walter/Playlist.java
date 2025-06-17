@@ -31,9 +31,7 @@ public class Playlist {
         playlist=new ArrayList<Song>();
         name=n;
     }
-    public void Play(int Index){
-        playlist.get(Index);
-    }
+
     private void AddSong(String str){
 
         if(playliststr.contains(str)){

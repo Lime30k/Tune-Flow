@@ -62,11 +62,6 @@ public class Play {
         return Playstatus;
     }
 
-    //Andreas what is that for?
-    public void changeSong(String s){
-        song = s;
-
-    }
     /*public void pause()
     {
         mediaPlayer.setOnPaused(hit);
