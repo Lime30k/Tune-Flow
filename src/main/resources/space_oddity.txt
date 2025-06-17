@@ -5,7 +5,7 @@ Rock
 Genre2:
 Psychedelic Rock
 RatingAmount:
-3,200,000
+3200000
 Length:
 4:02
 Artist:
