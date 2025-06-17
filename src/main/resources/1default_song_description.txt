@@ -1,17 +1,19 @@
-Artist:
-
-Album:
+Name:
 
 Genre:
 
 Genre2:
 
-Genre3:
+RatingAmount:
 
-Rating:
+Length:
 
-Characteristics:
+Artist:
 
-Characteristics2:
+Album:
 
-Mood:
+Average Rating:
+
+Mood1:
+
+Mood2:
