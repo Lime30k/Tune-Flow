@@ -1,0 +1,20 @@
+Name:
+skyfall
+Genre:
+Pop
+Genre2:
+Orchestral Pop
+RatingAmount:
+3,000,000
+Length:
+4:49
+Artist:
+Adele
+Album:
+Skyfall
+Average Rating:
+4.9
+Mood1:
+Dramatisch
+Mood2:
+Mysteriös
