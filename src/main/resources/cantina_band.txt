@@ -1,0 +1,20 @@
+Name:
+cantina_band
+Genre:
+Jizz
+Genre2:
+Space Jazz
+RatingAmount:
+4500
+Length:
+
+Artist:
+Figrin D'an
+Album:
+Star Wars: A new Hope (Original Motion Picture Soundtrack)
+Average Rating:
+4.8
+Mood1:
+Upbeat
+Mood2:
+Playfull
