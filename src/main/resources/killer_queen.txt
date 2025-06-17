@@ -1,0 +1,20 @@
+Name:
+Killer Queen
+Genre:
+Rock
+Genre2:
+Glam Rock
+RatingAmount:
+2500000
+Length:
+3:00
+Artist:
+Queen
+Album:
+Sheer Heart Attack
+Average Rating:
+4.8
+Mood1:
+Elegant
+Mood2:
+Verspielt
