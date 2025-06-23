@@ -24,7 +24,7 @@ import java.io.IOException;
 
  Start the app by running the main method.
  Decide whether you want to listen to an already defined Playlist or a new Song.
- Search for new songs in the Search engine.
+ Search for new songs in the Search engine. (WIP)
  Follow your instinct, it might be self-explanatory.
  Have fun!!!
 
@@ -44,7 +44,7 @@ public class HellController extends Application {
     public MenuItem fileloader;
     public ScrollPane songmenuscroll;
 
-    public Playlist playlistPapa = new Playlist(0,"default");
+    public Playlist playlistPapa;
 
     Play play = new Play();
     fileReader biteSnacker = new fileReader();
@@ -55,6 +55,10 @@ public class HellController extends Application {
         summonTheMightyHBox("new song would look like this");
         summonTheMightyHBox("or this");
         summonTheMightyHBox("the song of doom!!!");
+        for(int i=0; i<playlistPapa.playListStr.size();i++){
+            summonTheMightyHBox(playlistPapa.playListStr.get(i));
+
+        }
     }
     @FXML
     protected void onPlayPauseClick()
@@ -115,8 +119,11 @@ public class HellController extends Application {
     protected void createPlaylist() {
     }
 
-    protected void holySongInitializer(){
-
+    protected void hellishSongInitializer(){
+        for(int i=0; i<playlistPapa.playlist.size();i++){
+            summonTheMightyHBox(playlistPapa.playListStr.get(i));
+            System.out.println("code 1");
+        }
     }
 
     @Override
@@ -125,8 +132,14 @@ public class HellController extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Tune-Flow");
         stage.setScene(scene);
+
+
         stage.show();
-        holySongInitializer();
+        HellController controller = fxmlLoader.getController();
+        controller.playlistPapa = new Playlist(0, "default");
+        System.out.println(controller.playlistPapa.playlist.size());
+        controller.hellishSongInitializer();
+
     }
 
     public static void main(String[] args) {
