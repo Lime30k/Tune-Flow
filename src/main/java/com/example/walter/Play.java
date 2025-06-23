@@ -38,10 +38,10 @@ public class Play {
         if(mediaPlayer==null){
             System.out.println("Mediaplayer was not initialized");
         }
-        if(Playstatus==2) {
+        if(Playstatus==2||Playstatus==0) {
             Playstatus = 1;
             mediaPlayer.play();
-            System.out.println("Song "+ song + " started playing playing!");
+            System.out.println("Song "+ song + " started playing!");
 
             return true;
         }
