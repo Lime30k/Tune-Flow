@@ -34,7 +34,7 @@ import java.io.IOException;
 
 
 
-public class HelloController extends Application {
+public class HellController extends Application {
     @FXML
     private Label welcomeText;
     public Button HelloButton;
@@ -121,7 +121,7 @@ public class HelloController extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloController.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HellController.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Tune-Flow");
         stage.setScene(scene);
