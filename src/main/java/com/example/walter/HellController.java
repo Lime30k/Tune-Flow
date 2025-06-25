@@ -65,14 +65,14 @@ public class HellController extends Application {
         if(play.getPlaystatus()==0){
             play.playinit();
             play.startplay();
-            Play_pause.setText("Pause");
+            Play_pause.setText("⏸");
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
-            Play_pause.setText("Play");
+            Play_pause.setText("▷");
             return;
         }else {
             play.startplay();
-            Play_pause.setText("Pause");
+            Play_pause.setText("⏸");
         }
 
     }
