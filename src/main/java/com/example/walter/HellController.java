@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.Priority;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 
@@ -52,11 +53,9 @@ public class HellController extends Application {
     @FXML
     protected void onHelloButtonClick() {
         System.out.println("Label click works!");
-        summonTheMightyHBox("new song would look like this");
-        summonTheMightyHBox("or this");
-        summonTheMightyHBox("the song of doom!!!");
-        for(int i=0; i<playlistPapa.playListStr.size();i++){
-            summonTheMightyHBox(playlistPapa.playListStr.get(i));
+
+        for(int i=0; i<playlistPapa.playlist.size();i++){
+            summonTheMightyHBox(playlistPapa.playlist.get(i));
 
         }
     }
@@ -79,7 +78,7 @@ public class HellController extends Application {
     }
 
     @FXML
-    protected void summonTheMightyHBox(String labelText) {
+    protected void summonTheMightyHBox(Song song) {
         //resize vBox just in case
         songmenubar.setFillWidth(true);
 
@@ -89,7 +88,7 @@ public class HellController extends Application {
         hbox.setPrefHeight(25);
 
 
-        Label label = new Label(labelText);
+        Label label = new Label(song.getName());
         HBox.setHgrow(label,Priority.ALWAYS);
         label.setWrapText(false);
         label.setEllipsisString("...");
@@ -98,8 +97,8 @@ public class HellController extends Application {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
-        int ratingInt = 1;
-        String rstr = Integer.toString(ratingInt);
+        double ratingdouble = song.getRating();
+        String rstr = Double.toString(ratingdouble);
         Label rating = new Label(rstr);
 
 
@@ -113,7 +112,7 @@ public class HellController extends Application {
 
 
 
-    protected void rateSong(Song song, double rating) {
+    protected void rateSong(@NotNull Song song, double rating) {
         song.calculateReview(rating);
     }
 
@@ -122,13 +121,13 @@ public class HellController extends Application {
 
     protected void hellishSongInitializer(){
         for(int i=0; i<playlistPapa.playlist.size();i++){
-            summonTheMightyHBox(playlistPapa.playListStr.get(i));
+            summonTheMightyHBox(playlistPapa.playlist.get(i));
             System.out.println("code 1");
         }
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(@NotNull Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HellController.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Tune-Flow");
