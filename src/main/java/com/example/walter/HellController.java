@@ -3,12 +3,9 @@ package com.example.walter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -44,6 +41,8 @@ public class HellController extends Application {
     public VBox songmenubar;
     public MenuItem fileloader;
     public ScrollPane songmenuscroll;
+    public Button searchButton;
+    public TextField searchField;
 
     public Playlist playlistPapa;
 
@@ -117,6 +116,11 @@ public class HellController extends Application {
     }
 
     protected void createPlaylist() {
+    }
+
+    @FXML
+    protected void on_search_clicked(){
+
     }
 
     protected void hellishSongInitializer(){
