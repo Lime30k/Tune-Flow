@@ -135,7 +135,7 @@ public class HellController extends Application {
 
         for(int i = 0; i < playlistPapa.playlist.size(); i++){
             System.out.println(playlistPapa.playlist.get(i).getName());
-            if(calculateCloseness(playlistPapa.playlist.get(i).getName(), str) >= 80){
+            if(calculateCloseness(playlistPapa.playlist.get(i).getName(), str) >= 40){
 
                 summonTheMightyHBox(playlistPapa.playlist.get(i));
             }
