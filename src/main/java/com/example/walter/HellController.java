@@ -91,7 +91,8 @@ public class HellController extends Application {
 
         Label label = new Label(song.getName());
         HBox.setHgrow(label,Priority.ALWAYS);
-        label.setWrapText(false);
+
+                label.setWrapText(false);
         label.setEllipsisString("...");
 
 
