@@ -102,7 +102,9 @@ public class HellController extends Application {
 
 
         Button button = new Button("Play");
-        button.setOnAction(Play.changeSong(song.getName()));
+        button.setOnAction(e->{
+            play.changeSong(song.getName());
+        });
 
         hbox.getChildren().addAll(label, spacer, rating, button);
 
