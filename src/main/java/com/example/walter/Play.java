@@ -33,7 +33,9 @@ public class Play {
         mediaPlayer = new MediaPlayer(hit);
     }
     public void changeSong(String str){
-        pauseplay();
+        if(Playstatus== 1){
+            pauseplay();
+        };
         song = str;
         Playstatus = 0;
     }
