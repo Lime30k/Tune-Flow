@@ -46,7 +46,7 @@
                <children>
                   <Region HBox.hgrow="ALWAYS" />
                   <TextField fx:id="searchField" promptText="Search here" />
-                  <Button fx:id="searchButton" mnemonicParsing="false" text="⌕" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#on_search_clicked" text="⌕" />
                </children>
                <VBox.margin>
                   <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

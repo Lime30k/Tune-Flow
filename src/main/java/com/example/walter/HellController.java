@@ -120,7 +120,7 @@ public class HellController extends Application {
 
     @FXML
     protected void on_search_clicked(){
-
+        System.out.println("search lol");
     }
 
     protected void hellishSongInitializer(){
