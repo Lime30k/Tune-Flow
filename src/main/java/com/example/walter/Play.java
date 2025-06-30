@@ -33,11 +33,11 @@ public class Play {
         mediaPlayer = new MediaPlayer(hit);
     }
     public void changeSong(String str){
-        if(Playstatus== 1){
-            pauseplay();
-        };
-        song = str;
+        mediaPlayer.pause();
         Playstatus = 0;
+        System.out.println("Song " + song + " is currently paused!");
+        song = str;
+
     }
 
     //starts to play music if there is no music playing atm
