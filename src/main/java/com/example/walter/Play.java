@@ -17,6 +17,10 @@ public class Play {
     {
     }
 
+    public String getSong() {
+        return song;
+    }
+
     //sets the new song run this if you initialize a new song not just the first time but every time you want a new song
     public void playinit() {
 

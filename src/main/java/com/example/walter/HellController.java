@@ -65,6 +65,7 @@ public class HellController extends Application {
             play.playinit();
             play.startplay();
             Play_pause.setText("⏸");
+            song_name_song_play.setText(play.getSong());
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
             Play_pause.setText("▷");
@@ -72,6 +73,7 @@ public class HellController extends Application {
         }else {
             play.startplay();
             Play_pause.setText("⏸");
+            song_name_song_play.setText(play.getSong());
         }
 
     }
