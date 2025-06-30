@@ -65,6 +65,7 @@ public class HellController extends Application {
             play.playinit();
             play.startplay();
             Play_pause.setText("⏸");
+            song_name_song_play.setText(play.getSong());
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
             Play_pause.setText("▷");
@@ -72,6 +73,7 @@ public class HellController extends Application {
         }else {
             play.startplay();
             Play_pause.setText("⏸");
+            song_name_song_play.setText(play.getSong());
         }
 
     }
@@ -89,7 +91,8 @@ public class HellController extends Application {
 
         Label label = new Label(song.getName());
         HBox.setHgrow(label,Priority.ALWAYS);
-        label.setWrapText(false);
+
+                label.setWrapText(false);
         label.setEllipsisString("...");
 
 
@@ -101,7 +104,11 @@ public class HellController extends Application {
         Label rating = new Label(rstr);
 
 
-        Button button = new Button("Button");
+        Button button = new Button("Play");
+        button.setOnAction(e->{
+            play.changeSong(song.getName());
+            onPlayPauseClick();
+        });
 
         hbox.getChildren().addAll(label, spacer, rating, button);
 

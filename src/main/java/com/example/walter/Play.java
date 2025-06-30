@@ -17,8 +17,13 @@ public class Play {
     {
     }
 
+    public String getSong() {
+        return song;
+    }
+
     //sets the new song run this if you initialize a new song not just the first time but every time you want a new song
     public void playinit() {
+
         try {
             var resource = getClass().getResource("/" + song + ".mp3");
             if (resource == null) {
@@ -30,6 +35,13 @@ public class Play {
         }
         hit = new Media(bip);  // no need to wrap in File
         mediaPlayer = new MediaPlayer(hit);
+    }
+    public void changeSong(String str){
+        mediaPlayer.pause();
+        Playstatus = 0;
+        System.out.println("Song " + song + " is currently paused!");
+        song = str;
+
     }
 
     //starts to play music if there is no music playing atm
@@ -59,6 +71,7 @@ public class Play {
         System.out.println("incorrect player status for pausing");
         return false;
     }
+
 
     public int getPlaystatus() {
         return Playstatus;
