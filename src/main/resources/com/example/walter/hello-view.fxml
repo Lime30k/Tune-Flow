@@ -60,18 +60,18 @@
          <children>
             <HBox prefHeight="0.0" prefWidth="600.0">
                <children>
-                  <ImageView id="Song_logo_play" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Song_logo_play"  fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D />
                      </viewport>
                      <image>
-                        <Image url="@../../../default_song_cover.png" />
+                        <Image  url="@../../../default_song_cover.png" />
                      </image>
                   </ImageView>
                   <VBox>
                      <children>
                         <Label id="song_name_song_play" fx:id="song_name_song_play" onMouseClicked="#onHelloButtonClick" text="Song Name" />
-                        <Label id="artist_name_song_play" text="Artist Name" />
+                        <Label id="artist_name_song_play" fx:id="artist_name_song_play" text="Artist Name" />
                      </children>
                   </VBox>
                   <Region prefHeight="51.0" prefWidth="80.0" HBox.hgrow="ALWAYS" />

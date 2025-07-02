@@ -4,6 +4,12 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
@@ -12,6 +18,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.Priority;
 import org.jetbrains.annotations.NotNull;
 
+import java.awt.*;
 import java.io.IOException;
 
 
@@ -28,7 +35,7 @@ import java.io.IOException;
 
 
 
- */
+ **/
 
 
 
@@ -37,6 +44,8 @@ public class HellController extends Application {
     private Label welcomeText;
     public Button HelloButton;
     public Label song_name_song_play;
+    public ImageView Song_logo_play;
+    public Label artist_name_song_play;
     public Button Play_pause;
     public VBox songmenubar;
     public MenuItem fileloader;
