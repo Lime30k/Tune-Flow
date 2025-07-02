@@ -75,6 +75,7 @@ public class HellController extends Application {
             play.startplay();
             Play_pause.setText("⏸");
             song_name_song_play.setText(play.getSong());
+            artist_name_song_play.setText(play.getArtist());
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
             Play_pause.setText("▷");
@@ -83,6 +84,7 @@ public class HellController extends Application {
             play.startplay();
             Play_pause.setText("⏸");
             song_name_song_play.setText(play.getSong());
+            artist_name_song_play.setText(play.getArtist());
         }
 
     }
@@ -115,7 +117,7 @@ public class HellController extends Application {
 
         Button button = new Button("Play");
         button.setOnAction(e->{
-            play.changeSong(song.getName());
+            play.changeSong(song);
             onPlayPauseClick();
         });
 

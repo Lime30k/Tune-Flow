@@ -12,6 +12,7 @@ public class Play {
     private MediaPlayer mediaPlayer;
     private Media hit =null;
     private int Playstatus=0;
+    private String artist = "Rick Astley";
 
     public Play()
     {
@@ -19,6 +20,9 @@ public class Play {
 
     public String getSong() {
         return song;
+    }
+    public String getArtist() {
+        return artist;
     }
 
     //sets the new song run this if you initialize a new song not just the first time but every time you want a new song
@@ -36,11 +40,12 @@ public class Play {
         hit = new Media(bip);  // no need to wrap in File
         mediaPlayer = new MediaPlayer(hit);
     }
-    public void changeSong(String str){
+    public void changeSong(Song str){
         mediaPlayer.pause();
         Playstatus = 0;
         System.out.println("Song " + song + " is currently paused!");
-        song = str;
+        song = str.getName();
+        artist= str.getArtist();
 
     }
 
