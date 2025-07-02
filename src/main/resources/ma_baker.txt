@@ -1,0 +1,20 @@
+Name:
+ma_baker
+Genre:
+Disco
+Genre2:
+Euro-Dance
+RatingAmount:
+250000
+Length:
+4.35
+Artist:
+Boney M
+Album:
+Love For Sale
+Average Rating:
+4.1
+Mood1:
+Energetic
+Mood2:
+Nostalgic
