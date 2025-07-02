@@ -1,14 +1,11 @@
 package com.example.walter;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
@@ -16,10 +13,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.Priority;
+import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
 
-import java.awt.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Queue;
 
 
 /**
@@ -46,42 +45,48 @@ public class HellController extends Application {
     public Label song_name_song_play;
     public ImageView Song_logo_play;
     public Label artist_name_song_play;
+    public Button backward;
     public Button Play_pause;
+    public Button foreward;
     public VBox songmenubar;
     public MenuItem fileloader;
     public ScrollPane songmenuscroll;
     public Button searchButton;
     public TextField searchField;
+    public VBox QueueField;
+    public Slider progressBar;
 
     public Playlist playlistPapa;
+    private int QueuePosition = 0;
+    private boolean userIsDraggingSlider= false;
 
     Play play = new Play();
     fileReader biteSnacker = new fileReader();
+    public ArrayList<Song> Queue;
 
     @FXML
     protected void onHelloButtonClick() {
         System.out.println("Label click works!");
-
-        for(int i=0; i<playlistPapa.playlist.size();i++){
-            summonTheMightyHBox(playlistPapa.playlist.get(i));
-
-        }
     }
     @FXML
     protected void onPlayPauseClick()
     {
         if(play.getPlaystatus()==0){
             play.playinit();
+            setupSliderTracking();
             play.startplay();
             Play_pause.setText("⏸");
             song_name_song_play.setText(play.getSong());
             artist_name_song_play.setText(play.getArtist());
+            Song_logo_play.setImage(new Image(play.getSong()+".png"));
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
+            setupSliderTracking();
             Play_pause.setText("▷");
             return;
         }else {
             play.startplay();
+            setupSliderTracking();
             Play_pause.setText("⏸");
             song_name_song_play.setText(play.getSong());
             artist_name_song_play.setText(play.getArtist());
@@ -103,7 +108,7 @@ public class HellController extends Application {
         Label label = new Label(song.getName());
         HBox.setHgrow(label,Priority.ALWAYS);
 
-                label.setWrapText(false);
+        label.setWrapText(false);
         label.setEllipsisString("...");
 
 
@@ -114,6 +119,10 @@ public class HellController extends Application {
         String rstr = Double.toString(ratingdouble);
         Label rating = new Label(rstr);
 
+        Button addToQueue =new Button("Add to Queue");
+        addToQueue.setOnAction(e->{
+            addQueue(song);
+        });
 
         Button button = new Button("Play");
         button.setOnAction(e->{
@@ -121,13 +130,25 @@ public class HellController extends Application {
             onPlayPauseClick();
         });
 
-        hbox.getChildren().addAll(label, spacer, rating, button);
+        hbox.getChildren().addAll(label, spacer, rating, button, addToQueue);
 
         // Add the HBox to the VBox in the ScrollPane
         songmenubar.getChildren().add(hbox);
     }
 
+    protected void summonQueueBox(Song song){
+        QueueField.setFillWidth(true);
+        HBox hbox = new HBox();
+        hbox.setSpacing(10);
+        hbox.setPrefHeight(25);
 
+        Label songname = new Label(song.getName());
+        songname.setWrapText(false);
+        songname.setEllipsisString("...");
+
+        hbox.getChildren().addAll(songname);
+        QueueField.getChildren().addAll(hbox);
+    }
 
     protected void rateSong(@NotNull Song song, double rating) {
         song.calculateReview(rating);
@@ -199,11 +220,80 @@ public class HellController extends Application {
     }
 
 
+    protected void addQueue(Song s){
+        Queue.add(s);
+        System.out.println(s+" has been added to queue!");
+        summonQueueBox(s);
+    }
+
+    @FXML
+    protected void clearQueue(){
+        Queue.clear();
+        QueueField.getChildren().clear();
+        QueuePosition = 0;
+    }
+
+    @FXML
+    protected void foreward_pressed(){
+        if(QueuePosition + 1 < Queue.size()){
+            play.changeSong(Queue.get(QueuePosition+1));
+            QueuePosition++;
+            onPlayPauseClick();
+        }else {
+            play.pauseplay();
+            play.playinit();
+            play.startplay();
+        }
+    }
+    @FXML
+    protected void backward_pressed(){
+        if(!Queue.isEmpty()){
+            play.changeSong(Queue.get(QueuePosition-1));
+            QueuePosition--;
+            onPlayPauseClick();
+        }
+    }
+    @FXML
+    protected void sliderdragStarted(){
+        userIsDraggingSlider=true;
+    }
+    @FXML
+    protected void sliderdragEnded(){
+        userIsDraggingSlider = false;
+        double percent = progressBar.getValue() / 100.0;
+        Duration total = play.getMediaPlayer().getTotalDuration();
+        play.getMediaPlayer().seek(total.multiply(percent));
+    }
+    private void setupSliderTracking() {
+
+        play.getMediaPlayer().currentTimeProperty().addListener((obs, oldTime, newTime) -> {
+            if (!userIsDraggingSlider) {
+                Duration current = newTime;
+                Duration total = play.getMediaPlayer().getTotalDuration();
+                if (total != null && total.toMillis() > 0) {
+                    double progress = current.toMillis() / total.toMillis();
+                    progressBar.setValue(progress * 100);
+                }
+            }
+        });
+
+    }
     protected void hellishSongInitializer(){
         for(int i=0; i<playlistPapa.playlist.size();i++){
             summonTheMightyHBox(playlistPapa.playlist.get(i));
             System.out.println("code 1");
         }
+    }
+
+    @FXML
+    public void initialize() {
+        Queue = new ArrayList<Song>();
+        play.setOnSongEndListener(() -> {
+            // Run on JavaFX Application Thread:
+            Platform.runLater(this::foreward_pressed);
+        });
+
+
     }
 
     @Override
@@ -212,7 +302,6 @@ public class HellController extends Application {
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
         stage.setTitle("Tune-Flow");
         stage.setScene(scene);
-
 
         stage.show();
         HellController controller = fxmlLoader.getController();

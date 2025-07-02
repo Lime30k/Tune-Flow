@@ -4,7 +4,6 @@
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -60,28 +59,34 @@
          <children>
             <HBox prefHeight="0.0" prefWidth="600.0">
                <children>
-                  <ImageView fx:id="Song_logo_play"  fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="Song_logo_play" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D />
                      </viewport>
                      <image>
-                        <Image  url="@../../../default_song_cover.png" />
+                        <Image url="@../../../default_song_cover.png" />
                      </image>
                   </ImageView>
-                  <VBox>
+                  <VBox prefHeight="50.0" prefWidth="90.0">
                      <children>
-                        <Label id="song_name_song_play" fx:id="song_name_song_play" onMouseClicked="#onHelloButtonClick" text="Song Name" />
-                        <Label id="artist_name_song_play" fx:id="artist_name_song_play" text="Artist Name" />
+                        <Label id="song_name_song_play" fx:id="song_name_song_play" onMouseClicked="#onHelloButtonClick" text="Song Name">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
+                        <Label id="artist_name_song_play" fx:id="artist_name_song_play" text="Artist Name">
+                           <VBox.margin>
+                              <Insets left="5.0" />
+                           </VBox.margin></Label>
                      </children>
                   </VBox>
-                  <Region prefHeight="51.0" prefWidth="80.0" HBox.hgrow="ALWAYS" />
+                  <Region prefHeight="50.0" prefWidth="46.0" HBox.hgrow="ALWAYS" />
                   <VBox alignment="CENTER" prefHeight="50.0" prefWidth="205.0">
                      <children>
                         <HBox alignment="TOP_CENTER" spacing="8.0">
                            <children>
-                              <Button mnemonicParsing="false" text="⏮" />
+                              <Button fx:id="backward" mnemonicParsing="false" onAction="#backward_pressed" text="⏮" />
                               <Button fx:id="Play_pause" mnemonicParsing="false" onAction="#onPlayPauseClick" text="▷" />
-                              <Button mnemonicParsing="false" text="⏭" />
+                              <Button fx:id="foreward" mnemonicParsing="false" onAction="#foreward_pressed" text="⏭" />
                            </children>
                            <padding>
                               <Insets left="8.0" right="8.0" />
@@ -90,7 +95,7 @@
                               <Insets />
                            </VBox.margin>
                         </HBox>
-                        <Slider id="play_bar" majorTickUnit="100.0" minorTickCount="20" />
+                        <Slider id="play_bar" fx:id="progressBar" majorTickUnit="100.0" minorTickCount="20" onMouseDragEntered="#sliderdragStarted" onMouseDragExited="#sliderdragEnded" onMouseDragReleased="#sliderdragEnded" />
                      </children>
                   </VBox>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
@@ -118,9 +123,6 @@
          </children>
       </VBox>
    </bottom>
-   <left>
-      <ListView prefHeight="25.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
-   </left>
    <center>
       <ScrollPane fx:id="songmenuscroll" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
@@ -128,4 +130,16 @@
          </content>
       </ScrollPane>
    </center>
+   <left>
+      <ScrollPane BorderPane.alignment="CENTER">
+         <content>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#clearQueue" text="Clear Queue" />
+                  <VBox fx:id="QueueField" prefHeight="200.0" prefWidth="100.0" />
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </left>
 </BorderPane>

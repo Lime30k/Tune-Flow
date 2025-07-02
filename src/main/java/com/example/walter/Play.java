@@ -3,8 +3,11 @@ package com.example.walter;
 import java.io.File;
 import java.net.URISyntaxException;
 import java.util.Locale;
+
+import javafx.application.Platform;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 public class Play {
     private String bip = null;
@@ -14,6 +17,11 @@ public class Play {
     private int Playstatus=0;
     private String artist = "Rick Astley";
 
+    private Runnable onSongEndListener;
+
+    public void setOnSongEndListener(Runnable listener) {
+        this.onSongEndListener = listener;
+    }
     public Play()
     {
     }
@@ -23,6 +31,9 @@ public class Play {
     }
     public String getArtist() {
         return artist;
+    }
+    public MediaPlayer getMediaPlayer(){
+        return  mediaPlayer;
     }
 
     //sets the new song run this if you initialize a new song not just the first time but every time you want a new song
@@ -39,11 +50,20 @@ public class Play {
         }
         hit = new Media(bip);  // no need to wrap in File
         mediaPlayer = new MediaPlayer(hit);
+
+        mediaPlayer.setOnEndOfMedia(() -> {
+            System.out.println("Song finished!");
+            if (onSongEndListener != null) {
+                onSongEndListener.run();
+            }
+        });
     }
     public void changeSong(Song str){
-        mediaPlayer.pause();
-        Playstatus = 0;
-        System.out.println("Song " + song + " is currently paused!");
+        if (mediaPlayer!=null) {
+            mediaPlayer.pause();
+            Playstatus = 0;
+            System.out.println("Song " + song + " is currently paused!");
+        }
         song = str.getName();
         artist= str.getArtist();
 
