@@ -1,0 +1,20 @@
+Name:
+bohemian_rhapsody
+Genre:
+Rock
+Genre2:
+Progressive Rock
+RatingAmount:
+5000000
+Length:
+5.4
+Artist:
+Queen
+Album:
+A Night at the Opera
+Average Rating:
+4.9
+Mood1:
+Dramatic
+Mood2:
+Epic

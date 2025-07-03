@@ -1,0 +1,20 @@
+Name:
+scar_tissue
+Genre:
+Alternative Rock
+Genre2:
+Soft Rock
+RatingAmount:
+4200000
+Length:
+3.37
+Artist:
+Red Hot Chili Peppers
+Album:
+Californication
+Average Rating:
+4.6
+Mood1:
+Reflective
+Mood2:
+Warm

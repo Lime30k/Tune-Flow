@@ -1,0 +1,20 @@
+Name:
+otherside
+Genre:
+Alternative Rock
+Genre2:
+Psychedelic Rock
+RatingAmount:
+4300000
+Length:
+4.15
+Artist:
+Red Hot Chili Peppers
+Album:
+Californication
+Average Rating:
+4.7
+Mood1:
+Dark
+Mood2:
+Emotional

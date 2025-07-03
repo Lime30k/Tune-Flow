@@ -7,11 +7,12 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -26,7 +27,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem fx:id="fileloader" mnemonicParsing="false" text="Close" />
+                    <MenuItem fx:id="fileloader" mnemonicParsing="false" onAction="#loadAllPressed" text="Load all Songs" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -36,13 +37,30 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem mnemonicParsing="false" onAction="#aboutPressed" text="About" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
             <HBox alignment="TOP_RIGHT" spacing="9.0">
                <children>
+                  <Label text="Todays Featured Song:">
+                     <HBox.margin>
+                        <Insets top="2.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="featuredSongLabel" text="Label">
+                     <HBox.margin>
+                        <Insets top="4.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Franklin Gothic Book" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button mnemonicParsing="false" text="Play" />
                   <Region HBox.hgrow="ALWAYS" />
                   <TextField fx:id="searchField" promptText="Search here" />
                   <Button fx:id="searchButton" mnemonicParsing="false" onAction="#on_search_clicked" text="⌕" />
@@ -66,38 +84,52 @@
                      <image>
                         <Image url="@../../../default_song_cover.png" />
                      </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
                   </ImageView>
-                  <VBox prefHeight="50.0" prefWidth="90.0">
+                  <VBox prefHeight="48.0" prefWidth="124.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <Label id="song_name_song_play" fx:id="song_name_song_play" onMouseClicked="#onHelloButtonClick" text="Song Name">
+                        <Label id="song_name_song_play" fx:id="song_name_song_play" onMouseClicked="#onHelloButtonClick" text="Song Name" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets left="5.0" />
                            </VBox.margin></Label>
-                        <Label id="artist_name_song_play" fx:id="artist_name_song_play" text="Artist Name">
+                        <Label id="artist_name_song_play" fx:id="artist_name_song_play" text="Artist Name" VBox.vgrow="ALWAYS">
                            <VBox.margin>
                               <Insets left="5.0" />
                            </VBox.margin></Label>
                      </children>
+                     <HBox.margin>
+                        <Insets top="12.0" />
+                     </HBox.margin>
                   </VBox>
-                  <Region prefHeight="50.0" prefWidth="46.0" HBox.hgrow="ALWAYS" />
-                  <VBox alignment="CENTER" prefHeight="50.0" prefWidth="205.0">
+                  <Region prefHeight="50.0" prefWidth="46.0" />
+                  <AnchorPane>
                      <children>
-                        <HBox alignment="TOP_CENTER" spacing="8.0">
+                        <VBox alignment="CENTER" prefHeight="50.0" prefWidth="205.0">
                            <children>
-                              <Button fx:id="backward" mnemonicParsing="false" onAction="#backward_pressed" text="⏮" />
-                              <Button fx:id="Play_pause" mnemonicParsing="false" onAction="#onPlayPauseClick" text="▷" />
-                              <Button fx:id="foreward" mnemonicParsing="false" onAction="#foreward_pressed" text="⏭" />
+                              <HBox alignment="TOP_CENTER" spacing="8.0">
+                                 <children>
+                                    <Button fx:id="backward" mnemonicParsing="false" onAction="#backward_pressed" text="⏮" />
+                                    <Button fx:id="Play_pause" mnemonicParsing="false" onAction="#onPlayPauseClick" text="▷" />
+                                    <Button fx:id="foreward" mnemonicParsing="false" onAction="#foreward_pressed" text="⏭" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </HBox>
+                              <ProgressBar id="play_bar" fx:id="progressBar" prefHeight="12.0" prefWidth="191.0" progress="0.0">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </ProgressBar>
                            </children>
-                           <padding>
-                              <Insets left="8.0" right="8.0" />
-                           </padding>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                        </HBox>
-                        <Slider id="play_bar" fx:id="progressBar" majorTickUnit="100.0" minorTickCount="20" onMouseDragEntered="#sliderdragStarted" onMouseDragExited="#sliderdragEnded" onMouseDragReleased="#sliderdragEnded" />
+                        </VBox>
                      </children>
-                  </VBox>
+                  </AnchorPane>
                   <Region prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
                </children>
             </HBox>
@@ -108,7 +140,7 @@
                         <Font size="10.0" />
                      </font></Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Label text="Version 0.1.1">
+                  <Label text="Version 0.2.5">
                      <font>
                         <Font size="10.0" />
                      </font></Label>

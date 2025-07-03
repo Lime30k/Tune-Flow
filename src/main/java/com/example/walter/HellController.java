@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
 import javafx.scene.layout.VBox;
@@ -28,7 +30,7 @@ import java.util.Queue;
 
  Start the app by running the main method.
  Decide whether you want to listen to an already defined Playlist or a new Song.
- Search for new songs in the Search engine. (WIP)
+ Search for new songs in the Search engine.
  Follow your instinct, it might be self-explanatory.
  Have fun!!!
 
@@ -40,25 +42,31 @@ import java.util.Queue;
 
 public class HellController extends Application {
     @FXML
-    private Label welcomeText;
-    public Button HelloButton;
-    public Label song_name_song_play;
     public ImageView Song_logo_play;
+
+    public Label song_name_song_play;
     public Label artist_name_song_play;
+    public Label featuredSongLabel;
+
     public Button backward;
     public Button Play_pause;
     public Button foreward;
-    public VBox songmenubar;
-    public MenuItem fileloader;
-    public ScrollPane songmenuscroll;
     public Button searchButton;
-    public TextField searchField;
+
+    public VBox songmenubar;
     public VBox QueueField;
-    public Slider progressBar;
+
+    public MenuItem fileloader;
+
+    public ScrollPane songmenuscroll;
+
+    public TextField searchField;
+
+    public ProgressBar progressBar;
 
     public Playlist playlistPapa;
     private int QueuePosition = 0;
-    private boolean userIsDraggingSlider= false;
+
 
     Play play = new Play();
     fileReader biteSnacker = new fileReader();
@@ -73,7 +81,7 @@ public class HellController extends Application {
     {
         if(play.getPlaystatus()==0){
             play.playinit();
-            setupSliderTracking();
+            setupProgressBarTracking();
             play.startplay();
             Play_pause.setText("⏸");
             song_name_song_play.setText(play.getSong());
@@ -81,12 +89,12 @@ public class HellController extends Application {
             Song_logo_play.setImage(new Image(play.getSong()+".png"));
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
-            setupSliderTracking();
+
             Play_pause.setText("▷");
             return;
         }else {
             play.startplay();
-            setupSliderTracking();
+            setupProgressBarTracking();
             Play_pause.setText("⏸");
             song_name_song_play.setText(play.getSong());
             artist_name_song_play.setText(play.getArtist());
@@ -117,7 +125,7 @@ public class HellController extends Application {
 
         double ratingdouble = song.getRating();
         String rstr = Double.toString(ratingdouble);
-        Label rating = new Label(rstr);
+        Label rating = new Label("★"+rstr);
 
         Button addToQueue =new Button("Add to Queue");
         addToQueue.setOnAction(e->{
@@ -253,30 +261,34 @@ public class HellController extends Application {
             onPlayPauseClick();
         }
     }
-    @FXML
-    protected void sliderdragStarted(){
-        userIsDraggingSlider=true;
-    }
-    @FXML
-    protected void sliderdragEnded(){
-        userIsDraggingSlider = false;
-        double percent = progressBar.getValue() / 100.0;
-        Duration total = play.getMediaPlayer().getTotalDuration();
-        play.getMediaPlayer().seek(total.multiply(percent));
-    }
-    private void setupSliderTracking() {
 
-        play.getMediaPlayer().currentTimeProperty().addListener((obs, oldTime, newTime) -> {
-            if (!userIsDraggingSlider) {
-                Duration current = newTime;
-                Duration total = play.getMediaPlayer().getTotalDuration();
-                if (total != null && total.toMillis() > 0) {
-                    double progress = current.toMillis() / total.toMillis();
-                    progressBar.setValue(progress * 100);
-                }
+    @FXML
+    protected void loadAllPressed(){
+        songmenubar.getChildren().clear();
+        hellishSongInitializer();
+    }
+
+    @FXML
+    protected void aboutPressed(){
+        songmenubar.getChildren().clear();
+
+        Label label1 = new Label("About Us:");
+        label1.setFont(Font.font("System.Bold"));
+        Label label2 = new Label("Program written by: Andreas, Alex, Linus\n \nWe hope you enjoy the use of this Software\n \nIf you wish any new songs to be added feel free to contact us.\n\n Sincerely Tune-flow Studio");
+        songmenubar.getChildren().addAll(label1, label2);
+    }
+
+    private void setupProgressBarTracking() {
+        MediaPlayer mediaPlayer = play.getMediaPlayer();
+
+        mediaPlayer.currentTimeProperty().addListener((obs, oldTime, newTime) -> {
+            Duration total = mediaPlayer.getTotalDuration();
+
+            if (total != null && total.toMillis() > 0) {
+                double progress = newTime.toMillis() / total.toMillis();
+                Platform.runLater(() -> progressBar.setProgress(progress));
             }
         });
-
     }
     protected void hellishSongInitializer(){
         for(int i=0; i<playlistPapa.playlist.size();i++){
@@ -291,6 +303,7 @@ public class HellController extends Application {
         play.setOnSongEndListener(() -> {
             // Run on JavaFX Application Thread:
             Platform.runLater(this::foreward_pressed);
+            setupProgressBarTracking();
         });
 
 

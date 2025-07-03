@@ -3,5 +3,10 @@ specialz
 space_oddity
 skyfall
 killer_queen
+bohemian_rhapsody
+dancing_queen
 cantina_band
+scar_tissue
+otherside
+californication
 ma_baker
