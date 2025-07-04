@@ -21,8 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
-import static java.awt.SystemColor.menu;
+import java.util.Random;
 
 
 /**
@@ -69,7 +68,8 @@ public class HellController extends Application {
     public ProgressBar progressBar;
 
     public Playlist playlistPapa;
-    private int QueuePosition = 0;
+    private int queuePosition = 0;
+    private Song featuredSong;
 
 
     Play play = new Play();
@@ -267,14 +267,14 @@ public class HellController extends Application {
     protected void clearQueue(){
         Queue.clear();
         QueueField.getChildren().clear();
-        QueuePosition = 0;
+        queuePosition = 0;
     }
 
     @FXML
     protected void foreward_pressed(){
-        if(QueuePosition + 1 < Queue.size()){
-            play.changeSong(Queue.get(QueuePosition+1));
-            QueuePosition++;
+        if(queuePosition + 1 < Queue.size()){
+            play.changeSong(Queue.get(queuePosition +1));
+            queuePosition++;
             onPlayPauseClick();
         }else {
             play.pauseplay();
@@ -284,9 +284,9 @@ public class HellController extends Application {
     }
     @FXML
     protected void backward_pressed(){
-        if(!Queue.isEmpty()&&QueuePosition>0){
-            play.changeSong(Queue.get(QueuePosition-1));
-            QueuePosition--;
+        if(!Queue.isEmpty()&& queuePosition >0){
+            play.changeSong(Queue.get(queuePosition -1));
+            queuePosition--;
             onPlayPauseClick();
         }else {
             play.pauseplay();
@@ -346,8 +346,16 @@ public class HellController extends Application {
         }
     }
 
+    protected void FeaturedSong(){
+        featuredSongLabel.setText(playlistPapa.playlist.get().getDisplayName());
+
+
+    }
+
+
     @FXML
     public void initialize() {
+        //sdf
         Queue = new ArrayList<Song>();
         play.setOnSongEndListener(() -> {
             // Run on JavaFX Application Thread:
