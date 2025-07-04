@@ -1,0 +1,20 @@
+Name:
+down_under
+Genre:
+Pop
+Genre2:
+rock
+RatingAmount:
+4000000
+Displayname:
+Down Under
+Artist:
+Men at work
+Album:
+Business as Usual
+Average Rating:
+4.8
+Mood1:
+nostalgic
+Mood2:
+joy

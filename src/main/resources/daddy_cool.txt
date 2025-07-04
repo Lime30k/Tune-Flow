@@ -1,0 +1,20 @@
+Name:
+daddy_cool
+Genre:
+reggae
+Genre2:
+pop
+RatingAmount:
+450000
+Displayname
+Daddy Cool
+Artist:
+Boney M.
+Album:
+Take the Heat off Me
+Average Rating:
+4.1
+Mood1:
+fantastic
+Mood2:
+Epic

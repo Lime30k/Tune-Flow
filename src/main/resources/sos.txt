@@ -1,0 +1,20 @@
+Name:
+sos
+Genre:
+pop
+Genre2:
+pop
+RatingAmount:
+50000
+Displayname
+S.O.S.
+Artist:
+Abba
+Album:
+Abba
+Average Rating:
+4.5
+Mood1:
+funny
+Mood2:
+classic
