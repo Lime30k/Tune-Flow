@@ -47,6 +47,8 @@ public class HellController extends Application {
     public Label song_name_song_play;
     public Label artist_name_song_play;
     public Label featuredSongLabel;
+    public Label currentTimeLabel;
+    public Label totalTimeLabel;
 
     public Button backward;
     public Button Play_pause;
@@ -255,10 +257,14 @@ public class HellController extends Application {
     }
     @FXML
     protected void backward_pressed(){
-        if(!Queue.isEmpty()){
+        if(!Queue.isEmpty()&&QueuePosition>0){
             play.changeSong(Queue.get(QueuePosition-1));
             QueuePosition--;
             onPlayPauseClick();
+        }else {
+            play.pauseplay();
+            play.playinit();
+            play.startplay();
         }
     }
 
@@ -278,6 +284,13 @@ public class HellController extends Application {
         songmenubar.getChildren().addAll(label1, label2);
     }
 
+    private String formatDuration(Duration duration) {
+        int seconds = (int) duration.toSeconds();
+        int minutes = seconds / 60;
+        int remainingSeconds = seconds % 60;
+        return String.format("%02d:%02d", minutes, remainingSeconds);
+    }
+
     private void setupProgressBarTracking() {
         MediaPlayer mediaPlayer = play.getMediaPlayer();
 
@@ -287,8 +300,14 @@ public class HellController extends Application {
             if (total != null && total.toMillis() > 0) {
                 double progress = newTime.toMillis() / total.toMillis();
                 Platform.runLater(() -> progressBar.setProgress(progress));
+
+                Platform.runLater(() -> {
+                    currentTimeLabel.setText(formatDuration(newTime));
+                    totalTimeLabel.setText(formatDuration(total));
+                });
             }
         });
+
     }
     protected void hellishSongInitializer(){
         for(int i=0; i<playlistPapa.playlist.size();i++){
