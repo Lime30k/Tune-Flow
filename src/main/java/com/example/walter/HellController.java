@@ -145,7 +145,7 @@ public class HellController extends Application {
             onPlayPauseClick();
         });
 
-        Button ratingButton = new Button();
+        Button ratingButton = new Button("Rate");
         ContextMenu fileMenu = new ContextMenu();
 
 
@@ -182,6 +182,7 @@ public class HellController extends Application {
 
     protected void rateSong(@NotNull Song song, double rating) {
         song.calculateReview(rating);
+        System.out.println(Double.toString(rating));
     }
 
     protected void createPlaylist() {
@@ -251,6 +252,7 @@ public class HellController extends Application {
 
     protected void newRating(int rating, Song song){
         song.calculateReview(rating);
+        System.out.println("New rating for " + song.getName() + ": " + rating);
     }
 
 
