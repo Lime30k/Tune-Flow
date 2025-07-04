@@ -1,0 +1,20 @@
+Name:
+dont_be_so_shy
+Genre:
+Pop
+Genre2:
+indie
+RatingAmount:
+4000000
+Displayname:
+Don't be so shy
+Artist:
+Imany
+Album:
+The Wrong Kind of War
+Average Rating:
+4.8
+Mood1:
+dance
+Mood2:
+powerful

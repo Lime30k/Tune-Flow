@@ -1,0 +1,20 @@
+Name:
+what_is_love
+Genre:
+Dance
+Genre2:
+Electronic
+RatingAmount:
+480000
+Displayname
+What is Love
+Artist:
+Haddaway
+Album:
+The Album
+Average Rating:
+4.8
+Mood1:
+euphoric
+Mood2:
+melancholic

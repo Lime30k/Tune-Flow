@@ -1,0 +1,20 @@
+Name:
+major_tom
+Genre:
+Syntiepop
+Genre2:
+Schlager
+RatingAmount:
+2500000
+Displayname:
+Major Tom
+Artist:
+Peter Schilling
+Album:
+Fehler im System
+Average Rating:
+4.7
+Mood1:
+hopeful
+Mood2:
+freedom

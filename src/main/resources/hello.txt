@@ -1,0 +1,20 @@
+Name:
+hello
+Genre:
+pop
+Genre2:
+soul
+RatingAmount:
+5000000
+Displayname
+Hello
+Artist:
+Adele
+Album:
+25
+Average Rating:
+4.9
+Mood1:
+nostalgic
+Mood2:
+Epic

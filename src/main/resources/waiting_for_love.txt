@@ -1,0 +1,20 @@
+Name:
+waiting_for_love
+Genre:
+pop
+Genre2:
+house
+RatingAmount:
+5000000
+Displayname
+Waiting for love
+Artist:
+Aviccii
+Album:
+Stories
+Average Rating:
+4.4
+Mood1:
+driving
+Mood2:
+motivational

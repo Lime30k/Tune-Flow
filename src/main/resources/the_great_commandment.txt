@@ -1,0 +1,20 @@
+Name:
+the_great_commandment
+Genre:
+pop
+Genre2:
+indie
+RatingAmount:
+10000
+Displayname:
+The Great Commandment
+Artist:
+Camouflage
+Album:
+Voices & Images
+Average Rating:
+4.5
+Mood1:
+Dark
+Mood2:
+melancholic
