@@ -38,7 +38,7 @@ public class fileReader {
             e.printStackTrace();
         }
     }
-    public void getFileInfo(String path)
+    public int getFileInfo(String path)
     {
         File infile = new File(path);
         if (infile.exists()) {
@@ -47,8 +47,10 @@ public class fileReader {
             System.out.println("Writeable: " + infile.canWrite());
             System.out.println("Readable " + infile.canRead());
             System.out.println("File size in bytes " + infile.length());
+            return 1;
         } else {
             System.out.println("The file does not exist.");
+            return 0;
         }
     }
 

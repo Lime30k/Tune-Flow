@@ -20,15 +20,16 @@ public class Playlist {
         fileReader papaReader = new fileReader();
         if(status == 0){
             papaReader.read("1songinit.txt");
-        }else{
+        }else if(papaReader.getFileInfo(n+".txt")==1){
             papaReader.read(n+".txt");
         }
-        for(int  i = 0; i < papaReader.byteStash.size(); i++){
+        if(papaReader.getFileInfo(n+".txt")==1||status==0) {
+            for (int i = 0; i < papaReader.byteStash.size(); i++) {
 
-            AddSong(papaReader.byteStash.get(i));
+                AddSong(papaReader.byteStash.get(i));
 
+            }
         }
-
         if(status != 0){
             for(int i = 0; i< playlist.size();i++){
                 papaReader.addLine(playlist.get(i).getName(),n+".txt");
