@@ -53,7 +53,9 @@ public class fileReader {
     }
 
     // Replace a specific line
-    public void replaceLine(int lineNumber, String newContent) {
+    public void replaceLine(int lineNumber, String newContent, String path) {
+        byteStash.clear();
+        read(path);
         if (lineNumber < 0 || lineNumber >= byteStash.size()) {
             System.out.println("Invalid line number: " + lineNumber);
             return;
@@ -62,7 +64,9 @@ public class fileReader {
     }
 
     // Insert a new line
-    public void insertLine(int index, String content) {
+    public void insertLine(int index, String content, String path) {
+        byteStash.clear();
+        read(path);
         if (index < 0 || index > byteStash.size()) {
             System.out.println("Invalid index: " + index);
             return;
@@ -71,7 +75,9 @@ public class fileReader {
     }
 
     // Remove a line
-    public void removeLine(int index) {
+    public void removeLine(int index, String path) {
+        byteStash.clear();
+        read(path);
         if (index < 0 || index >= byteStash.size()) {
             System.out.println("Invalid index: " + index);
             return;
