@@ -7,7 +7,6 @@ public class Playlist {
     public String name;
     public ArrayList<String> playListStr;
     public ArrayList<Song> playlist;
-    private ArrayList<String> papa;
     private Song song;
     private fileReader convertReader = new fileReader();
     public Song specialSong;
@@ -16,16 +15,25 @@ public class Playlist {
     {
         playListStr = new ArrayList<>();
         playlist = new ArrayList<Song>();
+
+
+        fileReader papaReader = new fileReader();
         if(status == 0){
-
-            fileReader papaReader = new fileReader();
             papaReader.read("1songinit.txt");
-            for(int  i = 0; i < papaReader.byteStash.size(); i++){
+        }else{
+            papaReader.read(n+".txt");
+        }
+        for(int  i = 0; i < papaReader.byteStash.size(); i++){
 
-                AddSong(papaReader.byteStash.get(i));
+            AddSong(papaReader.byteStash.get(i));
 
-            }
+        }
 
+        if(status != 0){
+            for(int i = 0; i< playlist.size();i++){
+                papaReader.addLine(playlist.get(i).getName(),n+".txt");
+                papaReader.writeToFile(n+".txt");
+            };
         }
 
         name=n;

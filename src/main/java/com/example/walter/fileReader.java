@@ -94,7 +94,8 @@ public class fileReader {
     // Write out to a new file
     public void writeToFile(String outputPath) {
         try (java.io.PrintWriter writer = new java.io.PrintWriter(outputPath)) {
-            for (String line : byteStash) {
+            for (int i = 0; i< byteStash.size();i++) {
+                String line = byteStash.get(i);
                 writer.println(line);
             }
             System.out.println("File written to: " + outputPath);
