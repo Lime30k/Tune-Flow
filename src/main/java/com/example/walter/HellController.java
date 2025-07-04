@@ -8,19 +8,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.*;
 import javafx.scene.media.MediaPlayer;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.fxml.FXML;
-import javafx.scene.layout.VBox;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.Priority;
 import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
@@ -43,6 +44,8 @@ import java.util.Random;
 
 public class HellController extends Application {
     @FXML
+    public BorderPane rootPane;
+
     public ImageView Song_logo_play;
 
     public Label song_name_song_play;
@@ -58,6 +61,9 @@ public class HellController extends Application {
 
     public VBox songmenubar;
     public VBox QueueField;
+    public VBox topBar;
+
+    public HBox bottomBar;
 
     public MenuItem fileloader;
 
@@ -358,6 +364,63 @@ public class HellController extends Application {
         onPlayPauseClick();
     }
 
+    private static final List<KeyCode> KONAMI_CODE = List.of(
+            KeyCode.UP, KeyCode.UP,
+            KeyCode.DOWN, KeyCode.DOWN,
+            KeyCode.LEFT, KeyCode.RIGHT,
+            KeyCode.LEFT, KeyCode.RIGHT,
+            KeyCode.B, KeyCode.A
+    );
+
+    private final List<KeyCode> inputBuffer = new ArrayList<>();
+
+    public void registerKey(KeyCode code) {
+        inputBuffer.add(code);
+
+        if (inputBuffer.size() > KONAMI_CODE.size()) {
+            inputBuffer.remove(0);
+        }
+
+        if (inputBuffer.equals(KONAMI_CODE)) {
+            onKonamiCodeEntered();
+            inputBuffer.clear();
+        }
+    }
+
+    private void onKonamiCodeEntered() {
+        System.out.println("Konami Code Activated!");
+        featuredSongLabel.setText("✨ KONAMI MODE ✨");
+        // Change root background
+        rootPane.setStyle("-fx-background-color: linear-gradient(to bottom right, hotpink, purple);");
+
+        // Change top bar
+        topBar.setStyle("-fx-background-color: black;");
+        topBar.lookupAll(".label").forEach(node -> node.setStyle("-fx-text-fill: lime; -fx-font-weight: bold;"));
+
+        // Change bottom bar
+        bottomBar.setStyle("-fx-background-color: black;");
+        bottomBar.getChildren().filtered(node -> node instanceof Label).forEach(node -> {
+            ((Label) node).setText("KONAMI MODE ENABLED");
+            ((Label) node).setTextFill(Color.LIMEGREEN);
+            ((Label) node).setFont(Font.font("Consolas", 14));
+        });
+
+
+        // Change progress bar color
+        progressBar.setStyle("-fx-accent: lime;");
+
+        Label cheatLabel = new Label(" CHEAT MODE ACTIVATED ");
+        cheatLabel.setFont(Font.font("Consolas", 24));
+        cheatLabel.setTextFill(Color.RED);
+        cheatLabel.setStyle("-fx-font-weight: bold;");
+        songmenubar.getChildren().add(0, cheatLabel);
+        playlistPapa.specialSongConvert();
+        play.changeSong(playlistPapa.specialSong);
+        play.playinit();
+        onPlayPauseClick();
+    }
+
+
     @FXML
     public void initialize() {
         Queue = new ArrayList<Song>();
@@ -377,14 +440,22 @@ public class HellController extends Application {
         stage.setTitle("Tune-Flow");
         stage.setScene(scene);
 
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
+            System.out.println("Key pressed: " + e.getCode());
+        });
+
         stage.show();
+        scene.getRoot().requestFocus();
+
         HellController controller = fxmlLoader.getController();
         controller.playlistPapa = new Playlist(0, "default");
-        System.out.println(controller.playlistPapa.playlist.size());
         controller.hellishSongInitializer();
         controller.featuredSong();
 
+        //Konami code
+        scene.setOnKeyPressed(e -> controller.registerKey(e.getCode()));
     }
+
 
 
 

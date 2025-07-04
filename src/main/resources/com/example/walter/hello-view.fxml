@@ -18,9 +18,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.walter.HellController">
+<BorderPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.walter.HellController">
    <top>
-      <VBox BorderPane.alignment="CENTER">
+      <VBox fx:id="topBar" BorderPane.alignment="CENTER">
          <children>
             <MenuBar>
               <menus>
@@ -74,7 +74,7 @@
    <bottom>
       <VBox BorderPane.alignment="CENTER">
          <children>
-            <HBox prefHeight="0.0" prefWidth="600.0">
+            <HBox fx:id="bottomBar" prefHeight="63.0" prefWidth="600.0">
                <children>
                   <ImageView fx:id="Song_logo_play" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>

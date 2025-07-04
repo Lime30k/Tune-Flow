@@ -10,7 +10,7 @@ public class Playlist {
     private ArrayList<String> papa;
     private Song song;
     private fileReader convertReader = new fileReader();
-
+    public Song specialSong;
 
     public Playlist(int status, String n)
     {
@@ -69,5 +69,8 @@ public class Playlist {
             System.out.println(convertReader.byteStash.size());
             return null;
         }
+    }
+    public void specialSongConvert(){
+        specialSong =new Song("secret","","","Konami Code", "","",100000000,1000000000,"","");
     }
 }
