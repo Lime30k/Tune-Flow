@@ -113,8 +113,11 @@ public class Song {
 
         rating = (rating * convert + newrating) / (convert + 1);
         amount++;
-
-
+        fileReader read =new fileReader();
+        read.replaceLine(15,Double.toString(rating),name);
+        read.writeToFile(name);
+        read.replaceLine(7,Integer.toString(amount),name);
+        read.writeToFile(name);
     }
 
 }

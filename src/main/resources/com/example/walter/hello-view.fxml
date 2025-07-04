@@ -82,7 +82,7 @@
                         <Rectangle2D />
                      </viewport>
                      <image>
-                        <Image url="@../../../default_song_cover.png" />
+                        <Image url="@../../../../../../data/default_song_cover.png" />
                      </image>
                      <HBox.margin>
                         <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

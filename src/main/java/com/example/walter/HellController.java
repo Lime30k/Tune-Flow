@@ -22,7 +22,6 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 /**
@@ -97,7 +96,7 @@ public class HellController extends Application {
             Play_pause.setText("⏸");
             song_name_song_play.setText(play.getSong());
             artist_name_song_play.setText(play.getArtist());
-            Song_logo_play.setImage(new Image(play.getSong()+".png"));
+            Song_logo_play.setImage(new Image("data/"+play.getSong()+".png"));
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
 
@@ -430,7 +429,7 @@ public class HellController extends Application {
 
     public void playlistInit(){
         fileReader mamaReader = new fileReader();
-        mamaReader.read("1listinit.txt");
+        mamaReader.read("1listinit");
         for(int  i = 0; i < mamaReader.byteStash.size(); i++){
 
             playlistlist.add(new Playlist(69,mamaReader.byteStash.get(i)));

@@ -19,11 +19,11 @@ public class Playlist {
 
         fileReader papaReader = new fileReader();
         if(status == 0){
-            papaReader.read("1songinit.txt");
-        }else if(papaReader.getFileInfo(n+".txt")==1){
-            papaReader.read(n+".txt");
+            papaReader.read("1songinit");
+        }else if(papaReader.getFileInfo(n)==1){
+            papaReader.read(n);
         }
-        if(papaReader.getFileInfo(n+".txt")==1||status==0) {
+        if(papaReader.getFileInfo(n)==1||status==0) {
             for (int i = 0; i < papaReader.byteStash.size(); i++) {
 
                 AddSong(papaReader.byteStash.get(i));
@@ -32,8 +32,8 @@ public class Playlist {
         }
         if(status != 0){
             for(int i = 0; i< playlist.size();i++){
-                papaReader.addLine(playlist.get(i).getName(),n+".txt");
-                papaReader.writeToFile(n+".txt");
+                papaReader.addLine(playlist.get(i).getName(),n);
+                papaReader.writeToFile(n);
             };
         }
 
@@ -64,13 +64,13 @@ public class Playlist {
             playListStr.add(song.getName());
             playlist.add(song);
             System.out.println(song.getDisplayName() + " was added");
-            convertReader.addLine(song.getName(),name+".txt");
-            convertReader.writeToFile(name+".txt");
+            convertReader.addLine(song.getName(),name);
+            convertReader.writeToFile(name);
         }
     }
 
     private Song SongConvert(String str){
-        convertReader.read(str+".txt");
+        convertReader.read(str);
 
 
         if(convertReader.byteStash.size()==20) {

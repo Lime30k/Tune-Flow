@@ -20,18 +20,17 @@ public class fileReader {
     public void read(String path)
     {
         byteStash.clear();
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream(path)) {
-            if (inputStream == null) {
+        try (java.io.FileReader reader = new java.io.FileReader("data/"+path+".txt")) {
+            if (reader == null) {
                 System.out.println("File not found in resources: " + path);
                 return;
             }
 
-            Scanner reader = new Scanner(inputStream);
-            while (reader.hasNextLine()) {
-                String data = reader.nextLine();
+            Scanner scanny = new Scanner(reader);
+            while (scanny.hasNextLine()) {
+                String data = scanny.nextLine();
                 byteStash.add(data);
             }
-            reader.close();
 
         } catch (Exception e) {
             System.out.println("An error occurred while reading: " + path);
@@ -95,7 +94,7 @@ public class fileReader {
 
     // Write out to a new file
     public void writeToFile(String outputPath) {
-        try (java.io.PrintWriter writer = new java.io.PrintWriter(outputPath)) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter("data/"+outputPath+".txt")) {
             for (int i = 0; i< byteStash.size();i++) {
                 String line = byteStash.get(i);
                 writer.println(line);
