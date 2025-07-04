@@ -1,19 +1,19 @@
 Name:
-dancing_queen
+future_generation
 Genre:
-Pop
+House
 Genre2:
-Disco
+Techno
 RatingAmount:
-4000000
+4
 Displayname:
-Dancing Queen
+Future Generation
 Artist:
-ABBA
+Retro Beat (Henrik Vikberg)
 Album:
-Arrival
+Future Generation
 Average Rating:
-4.8
+4.7
 Mood1:
 Uplifting
 Mood2:
