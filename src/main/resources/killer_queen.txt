@@ -6,8 +6,8 @@ Genre2:
 Glam Rock
 RatingAmount:
 2500000
-Length:
-2.01
+Displayname:
+Killer Queen
 Artist:
 Queen
 Album:

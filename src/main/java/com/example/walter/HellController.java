@@ -21,7 +21,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Queue;
 
 import static java.awt.SystemColor.menu;
 
@@ -118,7 +117,7 @@ public class HellController extends Application {
         hbox.setPrefHeight(25);
 
 
-        Label label = new Label(song.getName());
+        Label label = new Label(song.getDisplayName());
         HBox.setHgrow(label,Priority.ALWAYS);
 
         label.setWrapText(false);
@@ -130,7 +129,7 @@ public class HellController extends Application {
 
 
         double ratingdouble = song.getRating();
-        String rstr = Double.toString(ratingdouble);
+        String rstr = String.format("%.1f",ratingdouble);
         Label rating = new Label("★"+rstr);
 
 
@@ -155,6 +154,8 @@ public class HellController extends Application {
 
         for(int i = 0; i <=5; i++){
            MenuItem item = new MenuItem(Integer.toString(i));
+            int finalI = i;
+            item.setOnAction(e-> newRating(finalI,song));
            fileMenu.getItems().add(item);
 
         }
@@ -249,7 +250,7 @@ public class HellController extends Application {
     }
 
     protected void newRating(int rating, Song song){
-        song.setRating(rating);
+        song.calculateReview(rating);
     }
 
 

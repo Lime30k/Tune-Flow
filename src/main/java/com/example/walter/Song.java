@@ -4,7 +4,7 @@ public class Song {
     private String name;
     private String genre;
     private String genre2;
-    private double length;
+    private String displayName;
     private String artist;
     private String album;
     private double rating;
@@ -13,12 +13,12 @@ public class Song {
     private String mood2;
 
 
-    public Song(String name, String genre, String genre2, double length, String artist, String album, double rating, int amount, String mood1, String mood2) {
+    public Song(String name, String genre, String genre2, String displayName, String artist, String album, double rating, int amount, String mood1, String mood2) {
         this.setName(name);
         this.setGenre(genre);
         this.setGenre2(genre2);
         this.setArtist(artist);
-        this.setLength(length);
+        this.setDisplayName(displayName);
         this.setAlbum(album);
         this.setRating(rating);
         this.setReview(amount);
@@ -42,8 +42,8 @@ public class Song {
         return artist;
     }
 
-    public double getLength() {
-        return length;
+    public String getDisplayName() {
+        return displayName;
     }
 
     public String getAlbum() {
@@ -79,8 +79,8 @@ public class Song {
         this.genre2 = genre2;
     }
 
-    public void setLength(double length) {
-        this.length = length;
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
     }
 
     public void setArtist(String artist) {

@@ -6,8 +6,8 @@ Genre2:
 Soft Rock
 RatingAmount:
 4200000
-Length:
-3.37
+Displayname:
+Californication
 Artist:
 Red Hot Chili Peppers
 Album:

@@ -54,14 +54,14 @@ public class Playlist {
             String genre = convertReader.byteStash.get(3);
             String genre2 = convertReader.byteStash.get(5);
             int amount = Integer.parseInt(convertReader.byteStash.get(7));
-            double length = Double.parseDouble(convertReader.byteStash.get(9));
+            String displayName = convertReader.byteStash.get(9);
             String artist = convertReader.byteStash.get(11);
             String album = convertReader.byteStash.get(13);
             double rating = Double.parseDouble(convertReader.byteStash.get(15));
             String mood1 = convertReader.byteStash.get(17);
             String mood2 = convertReader.byteStash.get(19);
 
-            song = new Song(songname, genre, genre2, length, artist, album, rating, amount, mood1, mood2);
+            song = new Song(songname, genre, genre2, displayName, artist, album, rating, amount, mood1, mood2);
             System.out.println(song);
             return song;
         }else {
