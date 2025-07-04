@@ -5,7 +5,7 @@ J-Rock
 Genre2:
 Alternative Rock
 RatingAmount:
-1000001
+7
 Displayname:
 Specialz
 Artist:
