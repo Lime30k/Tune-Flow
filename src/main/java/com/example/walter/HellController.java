@@ -147,8 +147,8 @@ public class HellController extends Application {
 
         Button ratingButton = new Button();
         ContextMenu fileMenu = new ContextMenu();
-        fileMenu.getItems().add(new MenuItem("Open"));
-        fileMenu.getItems().add(new MenuItem("Save"));
+
+
 
         ratingButton.setOnAction(e -> fileMenu.show(ratingButton, Side.BOTTOM, 0, 0));;
 
