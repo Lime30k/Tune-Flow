@@ -23,6 +23,9 @@ public class Playlist {
         }else if(papaReader.getFileInfo(n)==1){
             papaReader.read(n);
         }
+        if(papaReader.getFileInfo(n)==0){
+            papaReader.writeToFile(n);
+        }
         if(papaReader.getFileInfo(n)==1||status==0) {
             for (int i = 0; i < papaReader.byteStash.size(); i++) {
 
@@ -30,7 +33,7 @@ public class Playlist {
 
             }
         }
-        if(status != 0){
+        if(status > 0||status<0){
             for(int i = 0; i< playlist.size();i++){
                 papaReader.addLine(playlist.get(i).getName(),n);
                 papaReader.writeToFile(n);

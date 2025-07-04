@@ -1,13 +1,8 @@
 package com.example.walter;
 
 import java.io.File;
-import java.net.URISyntaxException;
-import java.util.Locale;
-
-import javafx.application.Platform;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 public class Play {
     private String bip = null;
@@ -16,6 +11,7 @@ public class Play {
     private Media hit =null;
     private int Playstatus=0;
     private String artist = "Rick Astley";
+    private String displayName = "Never Gonna Give You Up";
 
     private Runnable onSongEndListener;
 
@@ -35,20 +31,20 @@ public class Play {
     public MediaPlayer getMediaPlayer(){
         return  mediaPlayer;
     }
+    public String getDisplayName(){
+        return displayName;
+    }
 
     //sets the new song run this if you initialize a new song not just the first time but every time you want a new song
     public void playinit() {
 
-        try {
-            var resource = getClass().getResource("data/" + song + ".mp3");
-            if (resource == null) {
-                throw new IllegalStateException("Resource not found: /" + song + ".mp3");
-            }
-            bip = resource.toURI().toString();
-        } catch (URISyntaxException e) {
-            throw new RuntimeException("Invalid URI for: " + song, e);
+        File file = new File("data/" + song + ".mp3");
+        if (!file.exists()) {
+            throw new IllegalStateException("File not found: " + file.getAbsolutePath());
         }
-        hit = new Media(bip);  // no need to wrap in File
+        String bip = file.toURI().toString();  // converts file path to URI string
+
+        hit = new Media(bip);
         mediaPlayer = new MediaPlayer(hit);
 
         mediaPlayer.setOnEndOfMedia(() -> {
@@ -66,7 +62,7 @@ public class Play {
         }
         song = str.getName();
         artist= str.getArtist();
-
+        displayName = str.getDisplayName();
     }
 
     //starts to play music if there is no music playing atm
@@ -101,11 +97,6 @@ public class Play {
     public int getPlaystatus() {
         return Playstatus;
     }
-
-    /*public void pause()
-    {
-        mediaPlayer.setOnPaused(hit);
-    }*/
 
 }
 

@@ -19,6 +19,7 @@ import javafx.fxml.FXML;
 import javafx.util.Duration;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -94,9 +95,20 @@ public class HellController extends Application {
             setupProgressBarTracking();
             play.startplay();
             Play_pause.setText("⏸");
-            song_name_song_play.setText(play.getSong());
+            song_name_song_play.setText(play.getDisplayName());
             artist_name_song_play.setText(play.getArtist());
-            Song_logo_play.setImage(new Image("data/"+play.getSong()+".png"));
+
+            String imagePath = "data/" + play.getSong() + ".png";  // or relative path like "data/..."
+
+            File imageFile = new File(imagePath);
+            if (imageFile.exists()) {
+                Image img = new Image(imageFile.toURI().toString());
+                Song_logo_play.setImage(img);
+            } else {
+                System.out.println("Image file not found: " + imageFile.getAbsolutePath());
+                // optionally set a default/fallback image here
+            }
+            //Song_logo_play.setImage(new Image("/data/"+play.getSong()+".png"));
         }else if (play.getPlaystatus()==1) {
             play.pauseplay();
 
@@ -106,7 +118,7 @@ public class HellController extends Application {
             play.startplay();
             setupProgressBarTracking();
             Play_pause.setText("⏸");
-            song_name_song_play.setText(play.getSong());
+            song_name_song_play.setText(play.getDisplayName());
             artist_name_song_play.setText(play.getArtist());
         }
 
