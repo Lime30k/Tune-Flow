@@ -52,4 +52,44 @@ public class fileReader {
         }
     }
 
+    // Replace a specific line
+    public void replaceLine(int lineNumber, String newContent) {
+        if (lineNumber < 0 || lineNumber >= byteStash.size()) {
+            System.out.println("Invalid line number: " + lineNumber);
+            return;
+        }
+        byteStash.set(lineNumber, newContent);
+    }
+
+    // Insert a new line
+    public void insertLine(int index, String content) {
+        if (index < 0 || index > byteStash.size()) {
+            System.out.println("Invalid index: " + index);
+            return;
+        }
+        byteStash.add(index, content);
+    }
+
+    // Remove a line
+    public void removeLine(int index) {
+        if (index < 0 || index >= byteStash.size()) {
+            System.out.println("Invalid index: " + index);
+            return;
+        }
+        byteStash.remove(index);
+    }
+
+    // Write out to a new file
+    public void writeToFile(String outputPath) {
+        try (java.io.PrintWriter writer = new java.io.PrintWriter(outputPath)) {
+            for (String line : byteStash) {
+                writer.println(line);
+            }
+            System.out.println("File written to: " + outputPath);
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred while writing to file: " + outputPath);
+            e.printStackTrace();
+        }
+    }
+
 }
