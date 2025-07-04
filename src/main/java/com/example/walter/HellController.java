@@ -81,6 +81,7 @@ public class HellController extends Application {
     Play play = new Play();
     fileReader biteSnacker = new fileReader();
     public ArrayList<Song> Queue;
+    public ArrayList<Playlist> playlistlist;
 
     @FXML
     protected void onHelloButtonClick() {
@@ -275,6 +276,13 @@ public class HellController extends Application {
         QueueField.getChildren().clear();
         queuePosition = 0;
     }
+    @FXML
+    protected void saveQueue(){
+        playlistlist.add(new Playlist(69,"playlist "+playlistlist.size()));
+        for(int i=0;i<Queue.size();i++){
+            Queue.get(i);
+        }
+    }
 
     @FXML
     protected void foreward_pressed(){
@@ -420,10 +428,21 @@ public class HellController extends Application {
         onPlayPauseClick();
     }
 
+    public void playlistInit(){
+        fileReader mamaReader = new fileReader();
+        mamaReader.read("1listinit.txt");
+        for(int  i = 0; i < mamaReader.byteStash.size(); i++){
+
+            playlistlist.add(new Playlist(69,mamaReader.byteStash.get(i)));
+
+        }
+    }
+
 
     @FXML
     public void initialize() {
         Queue = new ArrayList<Song>();
+        playlistlist = new ArrayList<Playlist>();
         play.setOnSongEndListener(() -> {
             // Run on JavaFX Application Thread:
             Platform.runLater(this::foreward_pressed);
@@ -455,6 +474,7 @@ public class HellController extends Application {
         //Konami code
         scene.setOnKeyPressed(e -> controller.registerKey(e.getCode()));
     }
+
 
 
 
