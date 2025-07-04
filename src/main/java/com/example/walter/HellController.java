@@ -3,6 +3,7 @@ package com.example.walter;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -21,6 +22,8 @@ import org.jetbrains.annotations.NotNull;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Queue;
+
+import static java.awt.SystemColor.menu;
 
 
 /**
@@ -125,14 +128,17 @@ public class HellController extends Application {
         Region spacer = new Region();
         HBox.setHgrow(spacer, Priority.ALWAYS);
 
+
         double ratingdouble = song.getRating();
         String rstr = Double.toString(ratingdouble);
         Label rating = new Label("★"+rstr);
+
 
         Button addToQueue =new Button("Add to Queue");
         addToQueue.setOnAction(e->{
             addQueue(song);
         });
+
 
         Button button = new Button("Play");
         button.setOnAction(e->{
@@ -140,7 +146,20 @@ public class HellController extends Application {
             onPlayPauseClick();
         });
 
-        hbox.getChildren().addAll(label, spacer, rating, button, addToQueue);
+        Button ratingButton = new Button();
+        ContextMenu fileMenu = new ContextMenu();
+        fileMenu.getItems().add(new MenuItem("Open"));
+        fileMenu.getItems().add(new MenuItem("Save"));
+
+        ratingButton.setOnAction(e -> fileMenu.show(ratingButton, Side.BOTTOM, 0, 0));;
+
+        for(int i = 0; i <=5; i++){
+           MenuItem item = new MenuItem(Integer.toString(i));
+           fileMenu.getItems().add(item);
+
+        }
+
+        hbox.getChildren().addAll(label, spacer, rating, button, addToQueue, ratingButton);
 
         // Add the HBox to the VBox in the ScrollPane
         songmenubar.getChildren().add(hbox);
@@ -229,6 +248,11 @@ public class HellController extends Application {
         return (int) similarity; // Rückgabe als ganzzahliger Wert
     }
 
+    protected void newRating(int rating, Song song){
+        song.setRating(rating);
+    }
+
+
 
     protected void addQueue(Song s){
         Queue.add(s);
@@ -291,6 +315,9 @@ public class HellController extends Application {
         return String.format("%02d:%02d", minutes, remainingSeconds);
     }
 
+
+
+
     private void setupProgressBarTracking() {
         MediaPlayer mediaPlayer = play.getMediaPlayer();
 
@@ -341,10 +368,9 @@ public class HellController extends Application {
         System.out.println(controller.playlistPapa.playlist.size());
         controller.hellishSongInitializer();
 
-
-
-
     }
+
+
 
     public static void main(String[] args) {
         launch();
