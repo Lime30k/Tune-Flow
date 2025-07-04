@@ -40,7 +40,7 @@ public class Play {
     public void playinit() {
 
         try {
-            var resource = getClass().getResource("/" + song + ".mp3");
+            var resource = getClass().getResource("data/" + song + ".mp3");
             if (resource == null) {
                 throw new IllegalStateException("Resource not found: /" + song + ".mp3");
             }
