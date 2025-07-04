@@ -27,6 +27,7 @@
                 <Menu mnemonicParsing="false" text="File">
                   <items>
                     <MenuItem fx:id="fileloader" mnemonicParsing="false" onAction="#loadAllPressed" text="Load all Songs" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveQueue" text="Save Queue" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Edit">
@@ -175,7 +176,7 @@
    <left>
       <ScrollPane BorderPane.alignment="CENTER">
          <content>
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <VBox prefHeight="247.0" prefWidth="100.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#clearQueue" text="Clear Queue" />
                   <VBox fx:id="QueueField" prefHeight="200.0" prefWidth="100.0" />

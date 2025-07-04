@@ -54,6 +54,21 @@ public class Playlist {
         }
     }
 
+    public void addNewSong(Song song){
+        if(playlist.contains(song)){
+            return;
+        }
+
+
+        if(song != null){
+            playListStr.add(song.getName());
+            playlist.add(song);
+            System.out.println(song.getDisplayName() + " was added");
+            convertReader.addLine(song.getName(),name+".txt");
+            convertReader.writeToFile(name+".txt");
+        }
+    }
+
     private Song SongConvert(String str){
         convertReader.read(str+".txt");
 

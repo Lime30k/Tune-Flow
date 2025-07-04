@@ -280,7 +280,7 @@ public class HellController extends Application {
     protected void saveQueue(){
         playlistlist.add(new Playlist(69,"playlist "+playlistlist.size()));
         for(int i=0;i<Queue.size();i++){
-            playlistlist.get(playlistlist.size()).add(Queue.get(i));
+            playlistlist.getLast().addNewSong(Queue.get(i));
         }
     }
 
