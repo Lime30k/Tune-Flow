@@ -59,7 +59,7 @@
                         <Font name="Franklin Gothic Book" size="12.0" />
                      </font>
                   </Label>
-                  <Button mnemonicParsing="false" text="Play" />
+                  <Button mnemonicParsing="false" onAction="#featuredPlay" text="Play" />
                   <Region HBox.hgrow="ALWAYS" />
                   <TextField fx:id="searchField" promptText="Search here" />
                   <Button fx:id="searchButton" mnemonicParsing="false" onAction="#on_search_clicked" text="⌕" />
@@ -150,7 +150,7 @@
                         <Font size="10.0" />
                      </font></Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Label text="Version 0.2.6">
+                  <Label text="Version 0.2.5">
                      <font>
                         <Font size="10.0" />
                      </font></Label>
@@ -168,7 +168,7 @@
    <center>
       <ScrollPane fx:id="songmenuscroll" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="songmenubar" prefHeight="200.0" prefWidth="494.0" />
+            <VBox fx:id="songmenubar" prefHeight="200.0" prefWidth="397.0" />
          </content>
       </ScrollPane>
    </center>

@@ -346,16 +346,20 @@ public class HellController extends Application {
         }
     }
 
-    protected void FeaturedSong(){
-        featuredSongLabel.setText(playlistPapa.playlist.get().getDisplayName());
-
-
+    protected void featuredSong(){
+        int random = (int)(Math.random() * playlistPapa.playlist.size()) + 1;
+        featuredSongLabel.setText(playlistPapa.playlist.get(random).getDisplayName());
+        featuredSong=playlistPapa.playlist.get(random);
     }
 
+    @FXML
+    protected void featuredPlay(){
+        play.changeSong(featuredSong);
+        onPlayPauseClick();
+    }
 
     @FXML
     public void initialize() {
-        //sdf
         Queue = new ArrayList<Song>();
         play.setOnSongEndListener(() -> {
             // Run on JavaFX Application Thread:
@@ -378,6 +382,7 @@ public class HellController extends Application {
         controller.playlistPapa = new Playlist(0, "default");
         System.out.println(controller.playlistPapa.playlist.size());
         controller.hellishSongInitializer();
+        controller.featuredSong();
 
     }
 
