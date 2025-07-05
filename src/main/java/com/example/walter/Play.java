@@ -12,6 +12,7 @@ public class Play {
     private int Playstatus=0;
     private String artist = "Rick Astley";
     private String displayName = "Never Gonna Give You Up";
+    private double lastVolume = 0.5;
 
     private Runnable onSongEndListener;
 
@@ -46,6 +47,7 @@ public class Play {
 
         hit = new Media(bip);
         mediaPlayer = new MediaPlayer(hit);
+        mediaPlayer.setVolume(lastVolume);
 
         mediaPlayer.setOnEndOfMedia(() -> {
             System.out.println("Song finished!");
@@ -63,6 +65,13 @@ public class Play {
         song = str.getName();
         artist= str.getArtist();
         displayName = str.getDisplayName();
+    }
+
+    public void setVolume(double volume) {
+        if (mediaPlayer != null) {
+            lastVolume = volume;
+            mediaPlayer.setVolume(volume);
+        }
     }
 
     //starts to play music if there is no music playing atm

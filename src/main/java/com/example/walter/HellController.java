@@ -73,10 +73,11 @@ public class HellController extends Application {
 
     public ProgressBar progressBar;
 
+    public Slider volumeSlider;
+
     public Playlist playlistPapa;
     private int queuePosition = 0;
     private Song featuredSong;
-
 
     Play play = new Play();
     fileReader biteSnacker = new fileReader();
@@ -459,8 +460,11 @@ public class HellController extends Application {
             Platform.runLater(this::foreward_pressed);
             setupProgressBarTracking();
         });
-
-
+        volumeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
+            if (play != null) {
+                play.setVolume(newVal.doubleValue() / 100.0);
+            }
+        });
     }
 
     @Override
