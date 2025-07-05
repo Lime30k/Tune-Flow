@@ -3,6 +3,7 @@ package com.example.walter;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -139,7 +140,7 @@ public class HellController extends Application {
         hbox.setPrefHeight(25);
 
 
-        Label label = new Label(song.getDisplayName());
+        Label label = new Label(song.getDisplayName()+ "   -   "+song.getArtist());
         HBox.setHgrow(label,Priority.ALWAYS);
 
         label.setWrapText(false);

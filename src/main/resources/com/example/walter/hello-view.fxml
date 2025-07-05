@@ -177,7 +177,7 @@
    <center>
       <ScrollPane fx:id="songmenuscroll" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <content>
-            <VBox fx:id="songmenubar" prefHeight="200.0" prefWidth="397.0" />
+            <VBox fx:id="songmenubar" prefHeight="200.0" prefWidth="627.0" />
          </content>
       </ScrollPane>
    </center>
