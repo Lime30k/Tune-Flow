@@ -5,7 +5,7 @@ Alternative Rock
 Genre2:
 Funk Rock
 RatingAmount:
-4500000
+10
 Displayname:
 Californication
 Artist:

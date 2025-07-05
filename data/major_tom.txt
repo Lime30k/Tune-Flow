@@ -5,7 +5,7 @@ Syntiepop
 Genre2:
 Schlager
 RatingAmount:
-2500000
+10
 Displayname:
 Major Tom
 Artist:

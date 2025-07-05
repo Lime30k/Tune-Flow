@@ -5,7 +5,7 @@ Pop
 Genre2:
 indie
 RatingAmount:
-4000000
+10
 Displayname:
 Don't be so shy
 Artist:

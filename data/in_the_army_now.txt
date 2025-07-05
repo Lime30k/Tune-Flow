@@ -1,0 +1,20 @@
+Name:
+in_the_army_now
+Genre:
+Rock
+Genre2:
+Classic Rock
+RatingAmount:
+11
+Displayname:
+In the Army Now
+Artist:
+Status Quo
+Album:
+In the Army Now
+Average Rating:
+4.636363636363637
+Mood1:
+Military
+Mood2:
+Reflective

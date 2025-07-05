@@ -5,7 +5,7 @@ Rock
 Genre2:
 Psychedelic Rock
 RatingAmount:
-3200000
+10
 Displayname:
 Space Oddity
 Artist:

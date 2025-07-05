@@ -5,7 +5,7 @@ Alternative Rock
 Genre2:
 Soft Rock
 RatingAmount:
-4200000
+10
 Displayname:
 Scar Tissue
 Artist:

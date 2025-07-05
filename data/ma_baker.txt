@@ -5,7 +5,7 @@ Disco
 Genre2:
 Euro-Dance
 RatingAmount:
-250000
+10
 Displayname:
 Ma Baker
 Artist:

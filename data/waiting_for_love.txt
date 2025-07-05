@@ -5,7 +5,7 @@ pop
 Genre2:
 house
 RatingAmount:
-5000000
+10
 Displayname
 Waiting for love
 Artist:

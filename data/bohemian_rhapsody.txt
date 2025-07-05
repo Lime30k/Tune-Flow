@@ -5,7 +5,7 @@ Rock
 Genre2:
 Progressive Rock
 RatingAmount:
-5000000
+10
 Displayname
 Bohemian Rhapsody
 Artist:

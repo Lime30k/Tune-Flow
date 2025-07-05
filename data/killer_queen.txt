@@ -5,7 +5,7 @@ Rock
 Genre2:
 Glam Rock
 RatingAmount:
-2500000
+26
 Displayname:
 Killer Queen
 Artist:
@@ -13,7 +13,7 @@ Queen
 Album:
 Sheer Heart Attack
 Average Rating:
-4.8
+4.8076923076923075
 Mood1:
 Elegant
 Mood2:

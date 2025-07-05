@@ -5,7 +5,7 @@ Dance
 Genre2:
 Electronic
 RatingAmount:
-480000
+10
 Displayname
 What is Love
 Artist:

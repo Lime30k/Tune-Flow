@@ -5,7 +5,7 @@ Pop
 Genre2:
 Disco
 RatingAmount:
-4000000
+10
 Displayname:
 Dancing Queen
 Artist:

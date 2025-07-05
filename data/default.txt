@@ -6,6 +6,7 @@ killer_queen
 bohemian_rhapsody
 dancing_queen
 cantina_band
+in_the_army_now
 scar_tissue
 otherside
 californication

@@ -5,7 +5,7 @@ pop
 Genre2:
 pop
 RatingAmount:
-50000
+10
 Displayname
 S.O.S.
 Artist:

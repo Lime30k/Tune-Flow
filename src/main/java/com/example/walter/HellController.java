@@ -107,6 +107,9 @@ public class HellController extends Application {
                 Song_logo_play.setImage(img);
             } else {
                 System.out.println("Image file not found: " + imageFile.getAbsolutePath());
+                imageFile = new File("data/default_song_cover.png");
+                Image img = new Image(imageFile.toURI().toString());
+                Song_logo_play.setImage(img);
                 // optionally set a default/fallback image here
             }
             //Song_logo_play.setImage(new Image("/data/"+play.getSong()+".png"));
@@ -461,9 +464,14 @@ public class HellController extends Application {
             setupProgressBarTracking();
         });
         volumeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
-            if (play != null) {
-                play.setVolume(newVal.doubleValue() / 100.0);
-            }
+            double sliderValue = newVal.doubleValue() / 100.0;
+
+            // Apply a perceptual curve (gamma ~3.0 works well)
+            double perceptualVolume = Math.pow(sliderValue, 2.5);
+            System.out.printf("Slider: %.1f%% → Volume: %.3f%n", sliderValue * 100, perceptualVolume);
+
+
+            play.setVolume(perceptualVolume);
         });
     }
 

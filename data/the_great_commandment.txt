@@ -5,7 +5,7 @@ pop
 Genre2:
 indie
 RatingAmount:
-10000
+11
 Displayname:
 The Great Commandment
 Artist:
@@ -13,7 +13,7 @@ Camouflage
 Album:
 Voices & Images
 Average Rating:
-4.5
+4.545454545454546
 Mood1:
 Dark
 Mood2:

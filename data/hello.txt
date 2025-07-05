@@ -5,7 +5,7 @@ pop
 Genre2:
 soul
 RatingAmount:
-5000000
+10
 Displayname
 Hello
 Artist:

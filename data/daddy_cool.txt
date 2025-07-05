@@ -5,7 +5,7 @@ reggae
 Genre2:
 pop
 RatingAmount:
-450000
+10
 Displayname
 Daddy Cool
 Artist:
