@@ -5,7 +5,7 @@ reggae
 Genre2:
 pop
 RatingAmount:
-11
+12
 Displayname
 Daddy Cool
 Artist:
@@ -13,7 +13,7 @@ Boney M.
 Album:
 Take the Heat off Me
 Average Rating:
-4.181818181818182
+4.25
 Mood1:
 fantastic
 Mood2:
