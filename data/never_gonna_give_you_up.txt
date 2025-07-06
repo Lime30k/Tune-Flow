@@ -5,7 +5,7 @@ Pop
 Genre2:
 Dance-Pop
 RatingAmount:
-10
+12
 Displayname
 Never Gonna Give Up
 Artist:
@@ -13,7 +13,7 @@ Rick Astley
 Album:
 Whenever You Need Somebody
 Average Rating:
-4.6
+3.8333333333333335
 Mood1:
 Fröhlich
 Mood2:
