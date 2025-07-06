@@ -29,6 +29,7 @@
                   <items>
                     <MenuItem fx:id="fileloader" mnemonicParsing="false" onAction="#loadAllPressed" text="Load all Songs" />
                         <MenuItem mnemonicParsing="false" onAction="#saveQueue" text="Save Queue" />
+                        <MenuItem mnemonicParsing="false" onAction="#buildSongFormVBox" text="Add Song" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">

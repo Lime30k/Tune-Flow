@@ -80,7 +80,7 @@ public class HellController extends Application {
     private Song featuredSong;
 
     Play play = new Play();
-    fileReader biteSnacker ;
+    private fileReader byteSnacker;
     public ArrayList<Song> Queue;
     public ArrayList<Playlist> playlistlist;
 
@@ -92,7 +92,7 @@ public class HellController extends Application {
     protected void onPlayPauseClick()
     {
         if(play.getPlaystatus()==0){
-            play.playinit();
+            play.playInit();
             setupProgressBarTracking();
             play.startplay();
             Play_pause.setText("⏸");
@@ -126,6 +126,100 @@ public class HellController extends Application {
             artist_name_song_play.setText(play.getArtist());
         }
 
+    }
+
+    @FXML
+    protected void buildSongFormVBox() {
+        songmenubar.getChildren().clear();
+        VBox root = new VBox(10);
+
+        root.setStyle("-fx-border-color: black; -fx-padding: 10;");
+
+        // Fields
+        TextField nameField = new TextField();
+        TextField genreField = new TextField();
+        TextField genre2Field = new TextField();
+        TextField displayNameField = new TextField();
+        TextField artistField = new TextField();
+        TextField albumField = new TextField();
+        TextField averageRatingField = new TextField();
+        TextField mood1Field = new TextField();
+        TextField mood2Field = new TextField();
+
+        // Add labels and fields
+        root.getChildren().addAll(
+                new Label("filenames without .mp3/.png:"), nameField,
+                new Label("Genre:"), genreField,
+                new Label("Genre2:"), genre2Field,
+                new Label("Display Name:"), displayNameField,
+                new Label("Artist:"), artistField,
+                new Label("Album:"), albumField,
+                new Label("Initial Rating (0-5):"), averageRatingField,
+                new Label("Mood1:"), mood1Field,
+                new Label("Mood2:"), mood2Field
+        );
+
+        // Save button
+        Button saveButton = new Button("Save Song");
+        Label statusLabel = new Label();
+
+        saveButton.setOnAction(e -> {
+            String name = nameField.getText().trim();
+            if (name.isEmpty()) {
+                statusLabel.setText("Name is required!");
+                return;
+            }
+            byteSnacker.byteStash.clear();
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(nameField.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(genreField.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(genre2Field.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(Integer.toString(1),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(displayNameField.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(artistField.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(albumField.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(averageRatingField.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(mood1Field.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(":",name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(mood2Field.getText().trim(),name);
+            byteSnacker.writeToFile(name);
+            byteSnacker.addLine(name,"1songinit");
+            byteSnacker.writeToFile("1songinit");
+            playlistPapa.AddSong(name);
+
+        });
+
+        root.getChildren().addAll(saveButton, statusLabel);
+        songmenubar.getChildren().addAll(root);
+        loadAllPressed();
     }
 
     @FXML
@@ -294,12 +388,12 @@ public class HellController extends Application {
     @FXML
     protected void saveQueue(){
         playlistlist.add(new Playlist(69,"playlist "+playlistlist.size()));
-        biteSnacker.replaceLine(0,Integer.toString(playlistlist.size()),"1listinit");
+        byteSnacker.replaceLine(0,Integer.toString(playlistlist.size()),"1listinit");
         for(int i=0;i<Queue.size();i++){
             playlistlist.getLast().addNewSong(Queue.get(i));
         }
-        biteSnacker.replaceLine(0,Integer.toString(playlistlist.size()),"1listinit");
-        biteSnacker.writeToFile("1listinit");
+        byteSnacker.replaceLine(0,Integer.toString(playlistlist.size()),"1listinit");
+        byteSnacker.writeToFile("1listinit");
     }
 
     @FXML
@@ -310,7 +404,7 @@ public class HellController extends Application {
             onPlayPauseClick();
         }else {
             play.pauseplay();
-            play.playinit();
+            play.playInit();
             play.startplay();
         }
     }
@@ -322,7 +416,7 @@ public class HellController extends Application {
             onPlayPauseClick();
         }else {
             play.pauseplay();
-            play.playinit();
+            play.playInit();
             play.startplay();
         }
     }
@@ -442,7 +536,7 @@ public class HellController extends Application {
         songmenubar.getChildren().add(0, cheatLabel);
         playlistPapa.specialSongConvert();
         play.changeSong(playlistPapa.specialSong);
-        play.playinit();
+        play.playInit();
         onPlayPauseClick();
     }
 
@@ -460,9 +554,9 @@ public class HellController extends Application {
     @FXML
     public void initialize() {
         Queue = new ArrayList<Song>();
-        biteSnacker = new fileReader();
-        biteSnacker.read("1listinit");
-        int listSize = Integer.parseInt(biteSnacker.byteStash.get(0));
+        byteSnacker = new fileReader();
+        byteSnacker.read("1listinit");
+        int listSize = Integer.parseInt(byteSnacker.byteStash.get(0));
         playlistlist = new ArrayList<Playlist>(listSize);
         for(int i=0;i<listSize;i++){
             playlistlist.add(i,new Playlist(69,"Playlist "+i));

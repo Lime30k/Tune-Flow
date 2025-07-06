@@ -1,0 +1,20 @@
+Name:
+99_luftballons
+Genre:
+Neue Deutsche Welle
+Genre2:
+Pop Rock
+RatingAmount:
+10
+Displayname:
+99 Luftballons
+Artist:
+Nena
+Album:
+Nena
+Average Rating:
+4.7
+Mood1:
+Nachdenklich
+Mood2:
+Melancholisch

@@ -44,7 +44,7 @@ public class Playlist {
         System.out.println("Final playlist size: " + playlist.size());
     }
 
-    private void AddSong(String str){
+    public void AddSong(String str){
         if(playListStr.contains(str)){
             return;
         }

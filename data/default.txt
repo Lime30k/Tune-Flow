@@ -22,3 +22,5 @@ dont_be_so_shy
 major_tom
 down_under
 sleep_now_in_the_fire
+boulevard_of_broken_dreams
+99_luftballons

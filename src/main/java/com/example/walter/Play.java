@@ -37,7 +37,7 @@ public class Play {
     }
 
     //sets the new song run this if you initialize a new song not just the first time but every time you want a new song
-    public void playinit() {
+    public void playInit() {
 
         File file = new File("data/" + song + ".mp3");
         if (!file.exists()) {

@@ -1,0 +1,20 @@
+Name:
+sleep_now_in_the_fire
+Genre:
+Alternative Rock
+Genre2:
+Rap Metal
+RatingAmount:
+10
+Displayname:
+Sleep Now in the Fire
+Artist:
+Rage Against the Machine
+Album:
+The Battle of Los Angeles
+Average Rating:
+4.8
+Mood1:
+Aggressiv
+Mood2:
+Rebellisch
