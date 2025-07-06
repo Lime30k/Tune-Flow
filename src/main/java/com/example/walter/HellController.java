@@ -473,9 +473,13 @@ public class HellController extends Application {
     }
 
     protected void featuredSong(){
-        int random = (int)(Math.random() * playlistPapa.playlist.size()) + 1;
-        featuredSongLabel.setText(playlistPapa.playlist.get(random).getDisplayName());
-        featuredSong=playlistPapa.playlist.get(random);
+        if (playlistPapa == null || playlistPapa.playlist == null || playlistPapa.playlist.isEmpty()) {
+            System.err.println("playlistPapa.playlist is null or empty!");
+            return;
+        }
+        int random = (int)(Math.random() * playlistPapa.playlist.size());
+        featuredSong = playlistPapa.playlist.get(random);
+        featuredSongLabel.setText(featuredSong.getDisplayName());
     }
 
     @FXML
