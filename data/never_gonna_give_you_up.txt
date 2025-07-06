@@ -5,7 +5,7 @@ Pop
 Genre2:
 Dance-Pop
 RatingAmount:
-12
+10
 Displayname
 Never Gonna Give Up
 Artist:

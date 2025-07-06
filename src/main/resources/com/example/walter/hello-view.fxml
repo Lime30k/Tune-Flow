@@ -159,7 +159,7 @@
                         <Font size="10.0" />
                      </font></Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Label text="Version 0.2.5">
+                  <Label text="Version 1.0.0">
                      <font>
                         <Font size="10.0" />
                      </font></Label>

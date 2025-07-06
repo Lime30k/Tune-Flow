@@ -5,7 +5,7 @@ pop
 Genre2:
 indie
 RatingAmount:
-11
+10
 Displayname:
 The Great Commandment
 Artist:
