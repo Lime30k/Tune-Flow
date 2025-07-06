@@ -451,7 +451,7 @@ public class HellController extends Application {
 
         Label label1 = new Label("About Us:");
         label1.setFont(Font.font("System.Bold"));
-        Label label2 = new Label("Program written by: Andreas, Alex, Linus\n \nWe hope you enjoy the use of this Software\n \nIf you wish any new songs to be added feel free to contact us.\n\nSincerely, Tune-flow Studio");
+        Label label2 = new Label("Program written by: Andreas, Alex, Linus\n \nWe hope you enjoy the use of this Software\n \nIf you wish any new songs to be added paste the mp3 and (optional) cover png in the data folder.\nAfter that fill out the form in the program\n\nSincerely, Tune-flow Studio");
         songmenubar.getChildren().addAll(label1, label2);
     }
 
