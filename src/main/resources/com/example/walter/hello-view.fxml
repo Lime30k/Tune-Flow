@@ -31,11 +31,6 @@
                         <MenuItem mnemonicParsing="false" onAction="#saveQueue" text="Save Queue" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Edit">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#aboutPressed" text="About" />
@@ -159,7 +154,7 @@
                         <Font size="10.0" />
                      </font></Label>
                   <Region HBox.hgrow="ALWAYS" />
-                  <Label text="Version 1.0.0">
+                  <Label text="Version 1.0.1">
                      <font>
                         <Font size="10.0" />
                      </font></Label>
