@@ -51,6 +51,7 @@ public class Play {
 
         mediaPlayer.setOnEndOfMedia(() -> {
             System.out.println("Song finished!");
+
             if (onSongEndListener != null) {
                 onSongEndListener.run();
                 //glaub hier ist das Progress-Bar Problem

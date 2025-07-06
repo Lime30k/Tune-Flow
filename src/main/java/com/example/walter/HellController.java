@@ -3,7 +3,6 @@ package com.example.walter;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Pos;
 import javafx.geometry.Side;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -81,7 +80,7 @@ public class HellController extends Application {
     private Song featuredSong;
 
     Play play = new Play();
-    fileReader biteSnacker = new fileReader();
+    fileReader biteSnacker ;
     public ArrayList<Song> Queue;
     public ArrayList<Playlist> playlistlist;
 
@@ -195,15 +194,15 @@ public class HellController extends Application {
         hbox.setSpacing(10);
         hbox.setPrefHeight(25);
 
-        Label songname = new Label(song.getName());
-        songname.setWrapText(false);
-        songname.setEllipsisString("...");
+        Label songName = new Label(song.getDisplayName());
+        songName.setWrapText(false);
+        songName.setEllipsisString("...");
 
-        hbox.getChildren().addAll(songname);
+        hbox.getChildren().addAll(songName);
         QueueField.getChildren().addAll(hbox);
     }
 
-    protected void rateSong(@NotNull Song song, double rating) {
+    protected void rateSong(Song song, double rating) {
         song.calculateReview(rating);
         System.out.println(Double.toString(rating));
     }
@@ -295,9 +294,12 @@ public class HellController extends Application {
     @FXML
     protected void saveQueue(){
         playlistlist.add(new Playlist(69,"playlist "+playlistlist.size()));
+        biteSnacker.replaceLine(0,Integer.toString(playlistlist.size()),"1listinit");
         for(int i=0;i<Queue.size();i++){
             playlistlist.getLast().addNewSong(Queue.get(i));
         }
+        biteSnacker.replaceLine(0,Integer.toString(playlistlist.size()),"1listinit");
+        biteSnacker.writeToFile("1listinit");
     }
 
     @FXML
@@ -458,19 +460,24 @@ public class HellController extends Application {
     @FXML
     public void initialize() {
         Queue = new ArrayList<Song>();
-        playlistlist = new ArrayList<Playlist>();
+        biteSnacker = new fileReader();
+        biteSnacker.read("1listinit");
+        int listSize = Integer.parseInt(biteSnacker.byteStash.get(0));
+        playlistlist = new ArrayList<Playlist>(listSize);
+        for(int i=0;i<listSize;i++){
+            playlistlist.add(i,new Playlist(69,"Playlist "+i));
+        }
+
         play.setOnSongEndListener(() -> {
-            // Run on JavaFX Application Thread:
-            Platform.runLater(this::foreward_pressed);
+            foreward_pressed();
             setupProgressBarTracking();
         });
         volumeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
             double sliderValue = newVal.doubleValue() / 100.0;
 
-            // Apply a perceptual curve (gamma ~3.0 works well)
+            // Apply a perceptual curve (gamma ~2.5 works well)
             double perceptualVolume = Math.pow(sliderValue, 2.5);
             System.out.printf("Slider: %.1f%% → Volume: %.3f%n", sliderValue * 100, perceptualVolume);
-
 
             play.setVolume(perceptualVolume);
         });
