@@ -9,7 +9,7 @@ RatingAmount:
 Displayname
 S.O.S.
 Artist:
-Abba
+ABBA
 Album:
 ABBA
 Average Rating:

@@ -53,6 +53,7 @@ public class Play {
             System.out.println("Song finished!");
             if (onSongEndListener != null) {
                 onSongEndListener.run();
+                //glaub hier ist das Progress-Bar Problem
             }
         });
     }
