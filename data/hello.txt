@@ -15,6 +15,6 @@ Album:
 Average Rating:
 4.9
 Mood1:
-nostalgic
+Nostalgic
 Mood2:
 Epic

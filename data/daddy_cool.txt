@@ -1,9 +1,9 @@
 Name:
 daddy_cool
 Genre:
-reggae
+Reggae
 Genre2:
-pop
+Pop
 RatingAmount:
 12
 Displayname
@@ -15,6 +15,6 @@ Take the Heat off Me
 Average Rating:
 4.25
 Mood1:
-fantastic
+Fantastic
 Mood2:
 Epic

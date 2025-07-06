@@ -214,12 +214,12 @@ public class HellController extends Application {
             byteSnacker.addLine(name,"1songinit");
             byteSnacker.writeToFile("1songinit");
             playlistPapa.AddSong(name);
-
+            loadAllPressed();
         });
 
         root.getChildren().addAll(saveButton, statusLabel);
         songmenubar.getChildren().addAll(root);
-        loadAllPressed();
+
     }
 
     @FXML
@@ -313,13 +313,31 @@ public class HellController extends Application {
         System.out.println(str);
 
         for(int i = 0; i < playlistPapa.playlist.size(); i++){
-            System.out.println(playlistPapa.playlist.get(i).getName());
-            if(calculateCloseness(playlistPapa.playlist.get(i).getName(), str) >= 40||calculateCloseness(playlistPapa.playlist.get(i).getArtist(), str) >=40||calculateCloseness(playlistPapa.playlist.get(i).getGenre(), str) >=40||calculateCloseness(playlistPapa.playlist.get(i).getGenre2(), str) >=40){
+            Song song = playlistPapa.playlist.get(i);
+            System.out.println(song.getName());
 
-                summonTheMightyHBox(playlistPapa.playlist.get(i));
+            String[] fields = {
+                    song.getName(),
+                    song.getDisplayName(),
+                    song.getArtist(),
+                    song.getGenre(),
+                    song.getGenre2(),
+                    song.getAlbum(),
+                    song.getMood1(),
+                    song.getMood2()
+            };
+
+            boolean match = false;
+            for (String field : fields) {
+                if (calculateCloseness(field, str) >= 40) {
+                    match = true;
+                    break;
+                }
             }
 
-
+            if (match) {
+                summonTheMightyHBox(playlistPapa.playlist.get(i));
+            }
         }
     }
     // Methode zur Berechnung der Levenshtein-Distanz
@@ -433,7 +451,7 @@ public class HellController extends Application {
 
         Label label1 = new Label("About Us:");
         label1.setFont(Font.font("System.Bold"));
-        Label label2 = new Label("Program written by: Andreas, Alex, Linus\n \nWe hope you enjoy the use of this Software\n \nIf you wish any new songs to be added feel free to contact us.\n\n Sincerely Tune-flow Studio");
+        Label label2 = new Label("Program written by: Andreas, Alex, Linus\n \nWe hope you enjoy the use of this Software\n \nIf you wish any new songs to be added feel free to contact us.\n\nSincerely, Tune-flow Studio");
         songmenubar.getChildren().addAll(label1, label2);
     }
 

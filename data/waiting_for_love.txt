@@ -15,6 +15,6 @@ Stories
 Average Rating:
 4.4
 Mood1:
-driving
+Driving
 Mood2:
-motivational
+Motivational

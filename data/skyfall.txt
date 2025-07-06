@@ -15,6 +15,6 @@ Skyfall
 Average Rating:
 4.9
 Mood1:
-Dramatisch
+Dramatic
 Mood2:
-Mysteriös
+Mysterious

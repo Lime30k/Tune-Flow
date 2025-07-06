@@ -15,6 +15,6 @@ ABBA
 Average Rating:
 4.5
 Mood1:
-funny
+Funny
 Mood2:
-classic
+Classic
