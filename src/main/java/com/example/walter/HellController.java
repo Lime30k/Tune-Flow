@@ -517,10 +517,15 @@ public class HellController extends Application {
     private final List<KeyCode> inputBuffer = new ArrayList<>();
 
     public void registerKey(KeyCode code) {
+        if (!KONAMI_CODE.contains(code)) {
+            inputBuffer.clear();  // Reset on wrong input
+            return;
+        }
+
         inputBuffer.add(code);
 
         if (inputBuffer.size() > KONAMI_CODE.size()) {
-            inputBuffer.remove(0);
+            inputBuffer.removeFirst();
         }
 
         if (inputBuffer.equals(KONAMI_CODE)) {
@@ -575,6 +580,12 @@ public class HellController extends Application {
 
     @FXML
     public void initialize() {
+        Platform.runLater( () -> rootPane.requestFocus() );
+        rootPane.setOnKeyPressed(e -> {
+            System.out.println("Key pressed: " + e.getCode());
+            registerKey(e.getCode());
+            Platform.runLater( () -> rootPane.requestFocus() );
+        });
         Queue = new ArrayList<Song>();
         byteSnacker = new fileReader();
         byteSnacker.read("1listinit");
@@ -606,20 +617,18 @@ public class HellController extends Application {
         stage.setTitle("Tune-Flow");
         stage.setScene(scene);
 
-        scene.addEventFilter(KeyEvent.KEY_PRESSED, e -> {
-            System.out.println("Key pressed: " + e.getCode());
-        });
+
 
         stage.show();
-        scene.getRoot().requestFocus();
+
 
         HellController controller = fxmlLoader.getController();
         controller.playlistPapa = new Playlist(0, "default");
         controller.hellishSongInitializer();
         controller.featuredSong();
 
-        //Konami code
-        scene.setOnKeyPressed(e -> controller.registerKey(e.getCode()));
+
+
     }
 
 
