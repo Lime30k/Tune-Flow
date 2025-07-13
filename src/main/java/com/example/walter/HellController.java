@@ -43,14 +43,15 @@ import java.util.List;
 
 /**
  * <p>
- *   Authors: Alex, Linus, Andreas
+ * <h3>Authors: Alex, Linus, Andreas</h3>
+ * <p>
  * The main controller class for the Tune-Flow music player application.
  * <p>
  * This class manages the UI components and user interactions such as
  * playing songs, managing the song queue, searching, and handling ratings.
  * It also includes an easter egg: the Konami code detection activates a special mode.
  * <p>
- * Key Features:
+ * <h1>Key Features:</h1>
  * <ul>
  *     <li>Song playback control (play, pause, next, previous)</li>
  *     <li>Queue management for songs</li>
@@ -58,7 +59,8 @@ import java.util.List;
  *     <li>Rating system for songs</li>
  *     <li>Dynamic UI updates including featured songs and Konami code mode</li>
  * </ul>
- * <p>Usage:
+ * <p>
+ * <h2>Usage:</h2>
  * <ul>
  *     <li>Launch the application via the main method.</li>
  *     <li>Interact with the UI to play songs, create queues, search songs, and rate them.</li>
