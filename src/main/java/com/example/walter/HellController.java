@@ -9,7 +9,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -104,7 +103,7 @@ public class HellController extends Application {
 
     public Slider volumeSlider;
 
-    public Playlist playlistPapa;
+    public Playlist defaultPlaylist;
     private int queuePosition = 0;
     private Song featuredSong;
 
@@ -242,7 +241,7 @@ public class HellController extends Application {
             byteSnacker.writeToFile(name);
             byteSnacker.addLine(name,"1songinit");
             byteSnacker.writeToFile("1songinit");
-            playlistPapa.AddSong(name);
+            defaultPlaylist.AddSong(name);
             loadAllPressed();
         });
 
@@ -341,8 +340,8 @@ public class HellController extends Application {
         String str = searchField.getText();
         System.out.println(str);
 
-        for(int i = 0; i < playlistPapa.playlist.size(); i++){
-            Song song = playlistPapa.playlist.get(i);
+        for(int i = 0; i < defaultPlaylist.playlist.size(); i++){
+            Song song = defaultPlaylist.playlist.get(i);
             System.out.println(song.getName());
 
             String[] fields = {
@@ -365,7 +364,7 @@ public class HellController extends Application {
             }
 
             if (match) {
-                summonTheMightyHBox(playlistPapa.playlist.get(i));
+                summonTheMightyHBox(defaultPlaylist.playlist.get(i));
             }
         }
     }
@@ -513,19 +512,19 @@ public class HellController extends Application {
 
     }
     protected void hellishSongInitializer(){
-        for(int i=0; i<playlistPapa.playlist.size();i++){
-            summonTheMightyHBox(playlistPapa.playlist.get(i));
+        for(int i = 0; i< defaultPlaylist.playlist.size(); i++){
+            summonTheMightyHBox(defaultPlaylist.playlist.get(i));
             System.out.println("code 1");
         }
     }
 
     protected void featuredSong(){
-        if (playlistPapa == null || playlistPapa.playlist == null || playlistPapa.playlist.isEmpty()) {
-            System.err.println("playlistPapa.playlist is null or empty!");
+        if (defaultPlaylist == null || defaultPlaylist.playlist == null || defaultPlaylist.playlist.isEmpty()) {
+            System.err.println("defaultPlaylist.playlist is null or empty!");
             return;
         }
-        int random = (int)(Math.random() * playlistPapa.playlist.size());
-        featuredSong = playlistPapa.playlist.get(random);
+        int random = (int)(Math.random() * defaultPlaylist.playlist.size());
+        featuredSong = defaultPlaylist.playlist.get(random);
         featuredSongLabel.setText(featuredSong.getDisplayName());
     }
 
@@ -590,8 +589,8 @@ public class HellController extends Application {
         cheatLabel.setTextFill(Color.RED);
         cheatLabel.setStyle("-fx-font-weight: bold;");
         songmenubar.getChildren().add(0, cheatLabel);
-        playlistPapa.specialSongConvert();
-        play.changeSong(playlistPapa.specialSong);
+        defaultPlaylist.specialSongConvert();
+        play.changeSong(defaultPlaylist.specialSong);
         play.playInit();
         onPlayPauseClick();
     }
@@ -652,7 +651,7 @@ public class HellController extends Application {
 
 
         HellController controller = fxmlLoader.getController();
-        controller.playlistPapa = new Playlist(0, "default");
+        controller.defaultPlaylist = new Playlist(0, "default");
         controller.hellishSongInitializer();
         controller.featuredSong();
 

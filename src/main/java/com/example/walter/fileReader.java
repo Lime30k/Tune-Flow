@@ -11,9 +11,6 @@ public class fileReader {
 
     public ArrayList<String> byteStash = new ArrayList<>();
 
-    //this filereader is kinda broken do not try to fix it
-    //hours wasted:8
-
     public fileReader()
     {
     }
