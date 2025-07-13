@@ -26,17 +26,19 @@ import java.util.List;
 
 
 /**
- DOCUMENTATION: Authors: Alex, Linus, Andreas.
+ DOCUMENTATION:
+ Authors: Alex, Linus, Andreas
 
  Usage of this Tune-Flow application:
 
  Start the app by running the main method.
- Decide whether you want to listen to an already defined Playlist or a new Song.
- Search for new songs in the Search engine.
+ Decide whether you want to listen to a single song or to create a queue.
+ Search for songs in the Search engine.
+
  Follow your instinct, it might be self-explanatory.
+ Try out every button on the GUI to experience all features.
+ If you want to add new songs to Tune-Flow check out the Help-button on the GUI.
  Have fun!!!
-
-
 
  **/
 

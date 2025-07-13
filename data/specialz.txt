@@ -5,7 +5,7 @@ J-Rock
 Genre2:
 Alternative Rock
 RatingAmount:
-10
+11
 Displayname:
 Specialz
 Artist:
@@ -13,7 +13,7 @@ King Gnu
 Album:
 THE GREATEST UNKNOWN
 Average Rating:
-4.737495887504112
+4.761359897731011
 Mood1:
 Intensive
 Mood2:
