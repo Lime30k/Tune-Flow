@@ -642,6 +642,7 @@ public class HellController extends Application {
     public void start(@NotNull Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HellController.class.getResource("hello-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 800, 500);
+        stage.getIcons().add(new Image("/tune-flow-high-resolution-logo.png"));
         stage.setTitle("Tune-Flow");
         stage.setScene(scene);
 
