@@ -42,6 +42,8 @@ import java.util.List;
  **/
 
 /**
+ * <p>
+ *   Authors: Alex, Linus, Andreas
  * The main controller class for the Tune-Flow music player application.
  * <p>
  * This class manages the UI components and user interactions such as
@@ -56,17 +58,14 @@ import java.util.List;
  *     <li>Rating system for songs</li>
  *     <li>Dynamic UI updates including featured songs and Konami code mode</li>
  * </ul>
- * <p>
- * Usage:
+ * <p>Usage:
  * <ul>
  *     <li>Launch the application via the main method.</li>
  *     <li>Interact with the UI to play songs, create queues, search songs, and rate them.</li>
  *     <li>Enter the Konami code sequence on the keyboard to unlock a hidden "Konami Mode".</li>
  * </ul>
- * <p>
- * Authors: Alex, Linus, Andreas
- * <p>
- * Note: Ensure that song media files and their cover images are placed in the 'data' folder.
+ *<p>Note: Ensure that song media files and their cover images are placed in the 'data' folder</p>
+ *
  */
 
 
