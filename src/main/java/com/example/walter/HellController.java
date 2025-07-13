@@ -60,7 +60,7 @@ import java.util.List;
  *     <li>Dynamic UI updates including featured songs and Konami code mode</li>
  * </ul>
  * <p>
- * <h2>Usage:</h2>
+ * <h1>Usage:</h1>
  * <ul>
  *     <li>Launch the application via the main method.</li>
  *     <li>Interact with the UI to play songs, create queues, search songs, and rate them.</li>
