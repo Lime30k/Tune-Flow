@@ -65,6 +65,7 @@ git clone https://github.com/Lime30k/Tune-Flow.git
 
 - All song and playlist data is stored in plain text files for easy editing and backup.
 - The UI is built using JavaFX with a focus on simplicity and local file playback.
+- All songs currently stored in /data are for demonstrative purposes only
 
 ---
 
