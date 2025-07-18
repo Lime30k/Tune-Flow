@@ -9,7 +9,7 @@ Tune-Flow is a JavaFX-based desktop music player and playlist manager. It allows
 - Play MP3 files from your local library
 - Song queue with add/remove and skip controls
 - Playlist saving and loading
-- Fuzzy search to find songs even with typos
+- Search to find songs even with typos
 - Per-song rating system (0–5 stars)
 - Song metadata form with artist, genre, album, and moods
 - Progress bar and time display
